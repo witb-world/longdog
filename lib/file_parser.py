@@ -32,8 +32,7 @@ class FileParser:
             with open(f"{self.sharphound_dir_path}/{self.sharphound_files[file]}", 'r', encoding='utf-8-sig') as sharphound_data:
                 obj_data = json.load(sharphound_data)['data']
                 for obj in obj_data:
-                    print("user/computer object:", obj)
-                    print("adding", obj['ObjectIdentifier'])
+                    # print("adding", obj['ObjectIdentifier'])
                     self.users_and_computers[obj['ObjectIdentifier']] = obj['Properties']['name']
 
 
@@ -48,7 +47,7 @@ class FileParser:
         else:
             ou_map[guid_key].append(properties)
 
-    # TODO: decompose this
+    # TODO: decompose this, this isn't pretty
     def parse_files(self):
         output = []
 
