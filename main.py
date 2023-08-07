@@ -17,7 +17,7 @@ SHARPHOUND_BASE_PATH = ''
 def load_files(sharphound_dir, grouper_input, output):
     if grouper_input:
         GROUPER_PATH = grouper_input
-        print(GROUPER_PATH)
+        print("Loading group3r data from", GROUPER_PATH)
     else:
         GROUPER_PATH = None
 

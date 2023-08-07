@@ -17,6 +17,7 @@ class FileParser:
     def __init__(self, sharphound_dir_path, grouper_file_path):
         self.sharphound_dir_path = sharphound_dir_path
         self.grouper_file_path = grouper_file_path
+        print("Grouper file path set to", self.grouper_file_path)
 
         self.sharphound_files = {}
         self.grouper_map = {}

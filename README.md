@@ -23,5 +23,5 @@ Options:
 
 As noted above, the `--sharphound-dir` flag should be followed by the path to the directory containing your SharpHound output, after unzipping.
 
-`--grouper-input`, if being used, should point to the `jsonl` file produced from Group3r. You will most likely need to run our fork of Group3r so that it produces jsonified output (the link to that is coming soon-ish).
+`--grouper-input`, if being used, should point to the `jsonl` file produced from Group3r. You will need to run [our fork of Group3r](https://github.com/witb-world/Group3r) so that it produces output in JSONL format in a separate file.
 
