@@ -12,7 +12,7 @@ SHARPHOUND_BASE_PATH = ''
 @click.command()
 @click.option('--grouper-input', help='Path to Group3r JSONL input', required=False, type=str)
 @click.option('--sharphound-dir', help='Path to directory containing SharpHound .json files', required=True, type=str)
-@click.option('--output', default='output.json', help='Output file', type=str)
+@click.option('--output', default='longdog-out.json', help='Output file', type=str)
 
 def load_files(sharphound_dir, grouper_input, output):
     if grouper_input:

@@ -57,7 +57,7 @@ class FileParser:
                 for line in grouper_data:
                     guid_key = re.findall(r'\\{(.*)}$', line['Attributes']['PathInSysvol'])[0]
                     guid_key = guid_key.lower()
-                    self. grouper_map[guid_key] = line
+                    self.grouper_map[guid_key] = line
 
         with open(f"{self.sharphound_dir_path}/{self.sharphound_files['ous.json']}", 'r', encoding='utf-8-sig') as bloodhound_ou:
             ou_data = json.load(bloodhound_ou)
