@@ -53,4 +53,40 @@
 
 # ---- 
 # 
-# ScoutSuite collects findings as a directory of JSON files 
+# ScoutSuite collects findings as a directory of JSON files, iterates over each of them as applicable
+# Performance may not be a huge issue here
+
+# it would be nice if we had a JQ query we could run for each of these...
+import jq
+import json
+import os
+
+FINDINGS_DIR = '../rules/findings'
+
+# open intermediate output file 
+# 
+# For finding in ../rules/findings
+finding_paths = os.listdir(FINDINGS_DIR)
+
+gp_file = open("../longdog-out.json", 'r')
+gp_obj = json.load(gp_file)
+
+for finding_path in finding_paths:
+    with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
+        finding_obj = json.load(finding_file)
+        query_string = finding_obj['query']
+        query_compiled = jq.compile(query_string)
+        query_result = query_compiled.input(gp_obj)
+        print("Ran query, attempting to print result\n~~~~~~~~")
+        for res in query_result:
+            print(res)
+            # we can use this to confirm which policies have misconfigs
+            # now we want to make sure we can map this back to policy object, affected OUs
+            # --- this may mean changing query to return the GPO instead of the individual policy,
+            # --- or perhaps adding another query to each finding json file in order to pull this info.
+
+
+gp_file.close()
+
+# execute finding.query on output file
+# if match, create json file including finding, affected machines/users/OUs
