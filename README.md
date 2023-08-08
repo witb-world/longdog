@@ -27,6 +27,8 @@ As noted above, the `--sharphound-dir` flag should be followed by the path to th
 
 # Development notes
 
+### MVP roadmap
+
 - [x] Parse output from Group3r and Sharphound to map GPOs to affected OUs
 - [x] Handle GPO inheritance logic.
 - [x] Build methodology to assess policies based on `jq` queries stored with findings.
@@ -35,3 +37,7 @@ As noted above, the `--sharphound-dir` flag should be followed by the path to th
 - [ ] Build a comprehensive list of findings
     - Currently `rules/findings` directory contains just three findings for testing steps listed above.
 - [ ] Create HTML/Bootstrap reporting frontend
+
+### Longterm roadmap
+
+- [ ] Develop and integrate standalone LDAP and SMB ingest tooling to move away from Sharphound/Group3r requirements.
