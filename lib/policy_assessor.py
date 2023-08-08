@@ -71,15 +71,34 @@ finding_paths = os.listdir(FINDINGS_DIR)
 gp_file = open("../longdog-out.json", 'r')
 gp_obj = json.load(gp_file)
 
+# TODO: create a class for findings
+
+def build_finding_object(finding_obj, query_result):
+    source_gpo = {}
+    source_gpo['name'] = query_result['Properties']['name']
+    source_gpo['distinguishedname'] = query_result['Properties']['distinguishedname']
+
+    if query_result.get('gpLinks') == None or len(query_result['gpLinks']) == 0:
+        links = 'Domain'
+    else:
+        links = query_result['gpLinks'] 
+    
+    source_gpo['links'] = links
+    # finding_obj['source_gpo'] = source_gpo
+    if finding_obj.get('flagged_policies') == None:
+        finding_obj['flagged_policies'] = []
+    finding_obj['flagged_policies'].append(source_gpo)
+    return finding_obj
+
 for finding_path in finding_paths:
     with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
         finding_obj = json.load(finding_file)
-        query_string = finding_obj['query']
+        query_string = finding_obj['policy_object_query']
         query_compiled = jq.compile(query_string)
         query_result = query_compiled.input(gp_obj)
         print("Ran query, attempting to print result\n~~~~~~~~")
         for res in query_result:
-            print(res)
+            print(build_finding_object(finding_obj=finding_obj, query_result=res))
             # we can use this to confirm which policies have misconfigs
             # now we want to make sure we can map this back to policy object, affected OUs
             # --- this may mean changing query to return the GPO instead of the individual policy,
