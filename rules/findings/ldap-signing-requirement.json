@@ -1,0 +1,9 @@
+{
+    "description": "Insecure LDAP Server Configuration",
+    "rationale": "Without LDAP signing or LDAP channel binding, an attacker can man-in-the-middle LDAP communications between clients and domain controllers, and potentially escalate their privileges. Privileged NTLM authentication requests can also be relayed to LDAP services in order to attempt an escalation of privileges. ",
+    "remediation": "Create a Group Policy for domain controllers to enforce LDAP signing and LDAP channel binding",
+    "compliance": [],
+    "references": ["https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server"],
+    "dashboard_name": "Password Policy",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Values[]?.ValueName == \"LDAPClientIntegrity\")  | select(.Values[]?.ValueString != \"1\")"
+}
