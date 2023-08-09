@@ -52,6 +52,7 @@ class FileParser:
     def parse_files(self):
         output = []
 
+        # Create mapping of GUIDs to grouper GPO data
         if self.grouper_file_path:
             with jsonlines.open(self.grouper_file_path) as grouper_data:
                 for line in grouper_data:
@@ -59,6 +60,7 @@ class FileParser:
                     guid_key = guid_key.lower()
                     self.grouper_map[guid_key] = line
 
+        # Create mapping of OU GUIDs to their properties
         with open(f"{self.sharphound_dir_path}/{self.sharphound_files['ous.json']}", 'r', encoding='utf-8-sig') as bloodhound_ou:
             ou_data = json.load(bloodhound_ou)
             
@@ -67,7 +69,9 @@ class FileParser:
                 if len(ou['Links']) > 0:
                     for gp_link in ou['Links']:
                         self.add_link(gp_link, self.ou_map, ou)
+        # TODO: parse mappings in `domains` json file and either add to `ou_map` or some other structure
 
+        # Add grouper GPO info to sharphound's GPO mappings
         with open(f"{self.sharphound_dir_path}/{self.sharphound_files['gpos.json']}", 'r', encoding='utf-8-sig') as bloodhound_gpo:
             gpo_data = json.load(bloodhound_gpo)
             for gpo in gpo_data['data']:
@@ -83,6 +87,7 @@ class FileParser:
                     gpo['gpLinks'] = self.ou_map[ou_key]
                 output.append(gpo)
 
+        # Add OU data/gpLinks to output mapping
         for gpo in output:
             if 'gpLinks' in gpo:
                 for gp_link in gpo['gpLinks']:
