@@ -71,6 +71,8 @@ finding_paths = os.listdir(FINDINGS_DIR)
 gp_file = open("../longdog-out.json", 'r')
 gp_obj = json.load(gp_file)
 
+findings_list = []
+
 # TODO: create a class for findings
 
 def build_finding_object(finding_obj, query_result):
@@ -98,12 +100,15 @@ for finding_path in finding_paths:
         query_result = query_compiled.input(gp_obj)
         print("Ran query, attempting to print result\n~~~~~~~~")
         for res in query_result:
-            print(build_finding_object(finding_obj=finding_obj, query_result=res))
+            new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res)
+            # print(new_finding_obj)
+            findings_list.append(new_finding_obj)
             # we can use this to confirm which policies have misconfigs
             # now we want to make sure we can map this back to policy object, affected OUs
             # --- this may mean changing query to return the GPO instead of the individual policy,
             # --- or perhaps adding another query to each finding json file in order to pull this info.
 
+print(findings_list)
 
 gp_file.close()
 
