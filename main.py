@@ -28,7 +28,7 @@ def load_files(sharphound_dir, grouper_input, output):
     fp = file_parser.FileParser(sharphound_dir_path=SHARPHOUND_BASE_PATH, grouper_file_path=GROUPER_PATH)
     res = fp.parse_files()
 
-    print("Producing output:", res)
+    # print("Producing output:", res)
     with open(output, 'w') as mapped:
         json.dump(res, mapped)
 

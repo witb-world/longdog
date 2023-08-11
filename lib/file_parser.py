@@ -3,6 +3,16 @@ import jsonlines
 import re
 import os
 
+# class ADObject:
+#     def __init__(self, object_identifier: str, object_type: str, child_objects: []):
+#         """
+#         An AD object (e.g. an OU, User, Group, Computer, etc.)
+#         Use this to collect object attributes to map against a parent object's object_identifier
+#         """
+#         self.object_identifier = object_identifier
+#         self.object_type = object_type
+#         self.child_objects = child_objects
+
 class FileParser:
 
     def _set_file_paths(self):
@@ -21,21 +31,79 @@ class FileParser:
 
         self.sharphound_files = {}
         self.grouper_map = {}
+
         self.ou_map = {}
-        self.ou_relationships_map = {}
-        self.users_and_computers = {}
+
+        # maps GUID/ObjIdentifier of OU to List of its ChildObjects
+        self.obj_relationships_map = {}
+        
+        # maps GUID/ObjIdentifier of OU to Dict of its Properties
+        self.obj_properties_map = {}
+
+        # maps GUIDs of GPOs to List of all linked objects and what they inherit.
+        self.gp_link_map = {}
+
+        # maps GUIDs of GPOs to enforcement rule.
+        self.gp_enforced_map = {}
+
+        self.top_level_links = {} # direct links from OUs or domains to a group policy.
 
         self._set_file_paths()
-        self.parse_users_and_computers()
 
-    def parse_users_and_computers(self):
-        for file in ['users.json', 'computers.json', 'containers.json', 'groups.json']:
-            with open(f"{self.sharphound_dir_path}/{self.sharphound_files[file]}", 'r', encoding='utf-8-sig') as sharphound_data:
-                obj_data = json.load(sharphound_data)['data']
-                for obj in obj_data:
-                    # print("adding", obj['ObjectIdentifier'])
-                    self.users_and_computers[obj['ObjectIdentifier']] = obj['Properties']['name']
+    def add_object_to_relationships_map(self, object_type, obj):
+        if object_type != 'groups':
+            self.obj_relationships_map[obj['ObjectIdentifier'].lower()] = obj['ChildObjects']
+        else:
+            self.obj_relationships_map[obj['ObjectIdentifier'].lower()] = obj['Members']
 
+    def add_object_to_properties_map(self, object_type, obj):
+        self.obj_properties_map[obj['ObjectIdentifier'].lower()] = obj['Properties']
+
+    def add_to_map_from_sharphound_file(self, sharphound_file, map_type, top_level_only=False):
+        object_type_key = sharphound_file.split(".")[0] # should convert string `ous.json` to `ous`, for instance
+        with open(f"{self.sharphound_dir_path}/{self.sharphound_files[sharphound_file]}", 'r', encoding='utf-8-sig') as sharphound_fp:
+            sharphound_data = json.load(sharphound_fp)
+
+            for obj in sharphound_data['data']:
+                # if we're only parsing top-level links, skip over any objects that don't have links.
+                if top_level_only and (object_type_key == 'ous' or object_type_key == 'domains'):
+                    if obj.get('Links') == None or len(obj['Links']) == 0:
+                        continue
+                    else:
+                        for gp_link in obj['Links']:
+                            gp_guid = gp_link['GUID'].lower()
+                            if gp_guid not in self.top_level_links:
+                                self.top_level_links[gp_guid] = []
+                            self.top_level_links[gp_guid].append(obj['ObjectIdentifier'].lower())
+                            self.gp_enforced_map[gp_guid] = gp_link['IsEnforced']
+
+                if map_type == 'relationships':
+                    self.add_object_to_relationships_map(object_type_key, obj)
+                elif map_type == 'properties':
+                    self.add_object_to_properties_map(object_type_key, obj)                    
+
+    def set_top_level_links(self):
+        for file in ['domains.json', 'ous.json']:
+            self.add_to_map_from_sharphound_file(file, top_level_only=True)
+
+    def build_gplink_list(self, gp_guid):
+        for obj_id in self.top_level_links[gp_guid]:
+            for child_obj in self.obj_relationships_map[obj_id]:
+                # child_obj = self.obj_properties_map[child_obj['ObjectIdentifier'].lower()]
+                self.build_gplink_list_recurse(gp_guid, obj_id)
+                
+    def build_gplink_list_recurse(self, gp_guid, obj_id):
+        obj = self.obj_properties_map[obj_id]
+        blocks_inheritance = obj['blocksinheritance']
+        enforced = self.gp_enforced_map[gp_guid]
+
+        if blocks_inheritance and not enforced:
+            return
+        else:
+            self.gp_link_map[gp_guid].append(obj)
+            if obj_id in self.obj_relationships_map:
+                for child_obj in self.obj_relationships_map[obj_id]:
+                    self.build_gplink_list_recurse(gp_guid, child_obj['ObjectIdentifier'].lower())
 
     def add_link(self, gp_link, ou_map, ou):
         properties = ou['Properties']
@@ -48,16 +116,6 @@ class FileParser:
         else:
             ou_map[guid_key].append(properties)
 
-    def add_to_map_from_sharphound_file(self, sharphound_file):
-        with open(f"{self.sharphound_dir_path}/{self.sharphound_files[sharphound_file]}", 'r', encoding='utf-8-sig') as sharphound_fp:
-            sharphound_data = json.load(sharphound_fp)
-
-            for obj in sharphound_data['data']:
-                self.ou_relationships_map[obj['ObjectIdentifier'].lower()] = obj['ChildObjects']
-                if obj.get('Links') != None and len(obj['Links']) > 0:
-                    for gp_link in obj['Links']:
-                        self.add_link(gp_link, self.ou_map, obj)
-
     # TODO: decompose this, this isn't pretty
     def parse_files(self):
         output = []
@@ -69,26 +127,6 @@ class FileParser:
                     guid_key = re.findall(r'\\{(.*)}$', line['Attributes']['PathInSysvol'])[0]
                     guid_key = guid_key.lower()
                     self.grouper_map[guid_key] = line
-
-        # Create mapping of OU GUIDs to their properties
-        # with open(f"{self.sharphound_dir_path}/{self.sharphound_files['ous.json']}", 'r', encoding='utf-8-sig') as bloodhound_ou:
-        #     ou_data = json.load(bloodhound_ou)
-            
-        #     for ou in ou_data['data']:
-        #         self.ou_relationships_map[ou['ObjectIdentifier'].lower()] = ou['ChildObjects']
-        #         if len(ou['Links']) > 0:
-        #             for gp_link in ou['Links']:
-        #                 self.add_link(gp_link, self.ou_map, ou)
-        # # TODO: parse mappings in `domains` json file and either add to `ou_map` or some other structure
-
-        # with open(f"{self.sharphound_dir_path}/{self.sharphound_files['domains.json']}", 'r', encoding='utf-8-sig') as bloodhound_domain:
-        #     domain_data = json.load(bloodhound_domain)
-
-        #     for domain in domain_data['data']:
-        #         self.ou_relationships_map[domain['ObjectIdentifier'].lower()] = domain['ChildObjects']
-        #         if len(domain['Links']) > 0:
-        #             for gp_link in domain['Links']:
-        #                 self.add_link(gp_link, self.ou_map, domain)
 
         self.add_to_map_from_sharphound_file('ous.json')
         self.add_to_map_from_sharphound_file('domains.json')
@@ -111,15 +149,16 @@ class FileParser:
                 output.append(gpo)
 
         # Add OU data/gpLinks to output mapping
+        # TODO: rewrite this
         for gpo in output:
             if 'gpLinks' in gpo:
                 for gp_link in gpo['gpLinks']:
                     obj_id = gp_link['ObjectIdentifier'].lower() 
                     print(f'Looking at obj {gp_link["ObjectIdentifier"].lower()}')
-                    if obj_id in self.ou_relationships_map:
+                    if obj_id in self.obj_relationships_map:
                         # add each of these child objects to end of array, where they'll 
                         # (hopefully) be assessed recursively
-                        child_objects = self.ou_relationships_map[obj_id] # list of ChildObjects, by ObjectIdentifier
+                        child_objects = self.obj_relationships_map[obj_id] # list of ChildObjects, by ObjectIdentifier
                         for child in child_objects:
                             print("Enumerating child:", child['ObjectIdentifier'].lower(), child['ObjectType'])
                             if child['ObjectType'] == 'OU': # TODO: see if this can capture childobjects of domains, containers, groups, etc.
@@ -139,12 +178,12 @@ class FileParser:
                                 else:
                                     print("No child object mapping found for", child['ObjectIdentifier'].lower())
                             elif child['ObjectType'] == 'Computer' or child['ObjectType'] == 'User':
-                                child['name'] = self.users_and_computers[child['ObjectIdentifier']]
+                                child['name'] = self.obj_properties_map[child['ObjectIdentifier']]
                                 gpo['gpLinks'].append(child)
                             elif child['ObjectType'] == 'Container':
                                 print("Found container", child['ObjectIdentifier'].lower())
-                                gpo['gpLinks'].extend(self.ou_relationships_map[child['ObjectIdentifier'].lower()])
-                                # print(f"Potential children:", self.ou_relationships_map[child['ObjectIdentifier'].lower()])
+                                gpo['gpLinks'].extend(self.obj_relationships_map[child['ObjectIdentifier'].lower()])
+                                # print(f"Potential children:", self.obj_relationships_map[child['ObjectIdentifier'].lower()])
                                 # add children of this container [to what??]
                                 pass
                             else:
