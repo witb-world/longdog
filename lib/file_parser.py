@@ -96,13 +96,26 @@ class FileParser:
 
     def build_gplink_list(self, gp_guid):
         for obj_id in self.top_level_links[gp_guid]:
-            logger.trace("Adding top-level link:", )
-            for child_obj in self.obj_relationships_map[obj_id]:
-                # child_obj = self.obj_properties_map[child_obj['ObjectIdentifier'].lower()]
-                # TODO: either fix duplicate values in map, or add recursion flag check here
-                #       and append gp_guid to gp_link map here.
-                logger.trace("Adding gplink: {}".format( child_obj))
-                self.build_gplink_list_recurse(gp_guid, obj_id)
+            logger.trace(f"Adding top-level link: {obj_id}")
+            if self.recurse:
+                for child_obj in self.obj_relationships_map[obj_id]:
+                    # child_obj = self.obj_properties_map[child_obj['ObjectIdentifier'].lower()]
+                    # TODO: either fix duplicate values in map, or add recursion flag check here
+                    #       and append gp_guid to gp_link map here.
+                    logger.trace("Adding gplink: {}".format( child_obj))
+                    self.build_gplink_list_recurse(gp_guid, obj_id)
+            else:
+                obj = self.obj_properties_map[obj_id]
+                blocks_inheritance = obj.get('blocksinheritance')
+                enforced = self.gp_enforced_map[gp_guid]
+
+                if blocks_inheritance and not enforced:
+                    return
+                else:
+                    if gp_guid not in self.gp_link_map:
+                        logger.trace(f"adding {gp_guid} to link map")
+                        self.gp_link_map[gp_guid] = []
+                    self.gp_link_map[gp_guid].append(obj)
                 
     def build_gplink_list_recurse(self, gp_guid, obj_id):
         # TODO: figure out if this can be done with a DP/greedy algorithm instead, too slow for prod policies
