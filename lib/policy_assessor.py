@@ -61,15 +61,16 @@ import jq
 import json
 import os
 
-FINDINGS_DIR = '../rules/findings'
+from loguru import logger
+
+FINDINGS_DIR = 'rules/findings'
 
 # open intermediate output file 
 # 
 # For finding in ../rules/findings
 finding_paths = os.listdir(FINDINGS_DIR)
 
-gp_file = open("../longdog-out.json", 'r')
-gp_obj = json.load(gp_file)
+
 
 findings_list = []
 
@@ -92,25 +93,28 @@ def build_finding_object(finding_obj, query_result):
     finding_obj['flagged_policies'].append(source_gpo)
     return finding_obj
 
-for finding_path in finding_paths:
-    with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
-        finding_obj = json.load(finding_file)
-        query_string = finding_obj['policy_object_query']
-        query_compiled = jq.compile(query_string)
-        query_result = query_compiled.input(gp_obj)
-        print("Ran query, attempting to print result\n~~~~~~~~")
-        for res in query_result:
-            new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res)
-            # print(new_finding_obj)
-            findings_list.append(new_finding_obj)
-            # we can use this to confirm which policies have misconfigs
-            # now we want to make sure we can map this back to policy object, affected OUs
-            # --- this may mean changing query to return the GPO instead of the individual policy,
-            # --- or perhaps adding another query to each finding json file in order to pull this info.
+def assess_findings(output_path):
+    gp_file = open(output_path, 'r')
+    gp_obj = json.load(gp_file)
+    for finding_path in finding_paths:
+        with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
+            finding_obj = json.load(finding_file)
+            query_string = finding_obj['policy_object_query']
+            query_compiled = jq.compile(query_string)
+            query_result = query_compiled.input(gp_obj)
+            logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
+            for res in query_result:
+                new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res)
+                # print(new_finding_obj)
+                findings_list.append(new_finding_obj)
+                # we can use this to confirm which policies have misconfigs
+                # now we want to make sure we can map this back to policy object, affected OUs
+                # --- this may mean changing query to return the GPO instead of the individual policy,
+                # --- or perhaps adding another query to each finding json file in order to pull this info.
+    gp_file.close()
 
-print(findings_list)
+    return json.dumps(findings_list)
 
-gp_file.close()
 
 # execute finding.query on output file
 # if match, create json file including finding, affected machines/users/OUs
