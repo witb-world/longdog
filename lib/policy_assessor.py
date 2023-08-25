@@ -61,6 +61,8 @@ import jq
 import json
 import os
 
+from loguru import logger
+
 FINDINGS_DIR = '../rules/findings'
 
 # open intermediate output file 
@@ -98,7 +100,7 @@ for finding_path in finding_paths:
         query_string = finding_obj['policy_object_query']
         query_compiled = jq.compile(query_string)
         query_result = query_compiled.input(gp_obj)
-        print("Ran query, attempting to print result\n~~~~~~~~")
+        logger.debug("Ran query, attempting to print result\n~~~~~~~~")
         for res in query_result:
             new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res)
             # print(new_finding_obj)
@@ -108,7 +110,7 @@ for finding_path in finding_paths:
             # --- this may mean changing query to return the GPO instead of the individual policy,
             # --- or perhaps adding another query to each finding json file in order to pull this info.
 
-print(findings_list)
+print(json.dumps(findings_list))
 
 gp_file.close()
 
