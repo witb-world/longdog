@@ -25,9 +25,10 @@ class FileParser:
                 if re.match(pattern=r'.*{}$'.format(ending), string=path):
                     self.sharphound_files[ending] = path
 
-    def __init__(self, sharphound_dir_path, grouper_file_path):
+    def __init__(self, sharphound_dir_path, grouper_file_path, recurse=False):
         self.sharphound_dir_path = sharphound_dir_path
         self.grouper_file_path = grouper_file_path
+        self.recurse = recurse
         print("Grouper file path set to", self.grouper_file_path)
 
         self.sharphound_files = {}
@@ -94,6 +95,7 @@ class FileParser:
                 self.build_gplink_list_recurse(gp_guid, obj_id)
                 
     def build_gplink_list_recurse(self, gp_guid, obj_id):
+        # TODO: figure out if this can be done with a DP/greedy algorithm instead, too slow for prod policies
         obj = self.obj_properties_map[obj_id]
         blocks_inheritance = obj.get('blocksinheritance')
         enforced = self.gp_enforced_map[gp_guid]
@@ -107,18 +109,8 @@ class FileParser:
             self.gp_link_map[gp_guid].append(obj)
             if obj_id in self.obj_relationships_map and self.obj_relationships_map[obj_id] is not None:
                 for child_obj in self.obj_relationships_map[obj_id]:
-                    self.build_gplink_list_recurse(gp_guid, child_obj['ObjectIdentifier'].lower())
-
-    def add_link(self, gp_link, ou_map, ou):
-        properties = ou['Properties']
-        guid_key = gp_link['GUID'].lower()
-        properties['IsEnforced'] = gp_link['IsEnforced']
-        properties['ObjectIdentifier'] = ou['ObjectIdentifier']
-        print("adding link:", guid_key)
-        if guid_key not in ou_map:
-            ou_map[guid_key] = [properties]
-        else:
-            ou_map[guid_key].append(properties)
+                    if self.recurse:
+                        self.build_gplink_list_recurse(gp_guid, child_obj['ObjectIdentifier'].lower())
 
     def parse_files(self):
         output = []
