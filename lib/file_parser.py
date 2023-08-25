@@ -1,7 +1,10 @@
 import json
-import jsonlines
 import re
+import sys
 import os
+
+import jsonlines
+from loguru import logger
 
 # class ADObject:
 #     def __init__(self, object_identifier: str, object_type: str, child_objects: []):
@@ -12,6 +15,9 @@ import os
 #         self.object_identifier = object_identifier
 #         self.object_type = object_type
 #         self.child_objects = child_objects
+logger.remove(0)
+logger.add(sys.stderr, level="TRACE")
+
 SHARPHOUND_FILES = ['computers.json', 'containers.json', 'domains.json', 'gpos.json', 'groups.json', 'ous.json', 'users.json']
 
 class FileParser:
@@ -29,7 +35,7 @@ class FileParser:
         self.sharphound_dir_path = sharphound_dir_path
         self.grouper_file_path = grouper_file_path
         self.recurse = recurse
-        print("Grouper file path set to", self.grouper_file_path)
+        logger.trace("Grouper file path set to {}".format(self.grouper_file_path))
 
         self.sharphound_files = {}
         self.grouper_map = {}
@@ -90,8 +96,12 @@ class FileParser:
 
     def build_gplink_list(self, gp_guid):
         for obj_id in self.top_level_links[gp_guid]:
+            logger.trace("Adding top-level link:", )
             for child_obj in self.obj_relationships_map[obj_id]:
                 # child_obj = self.obj_properties_map[child_obj['ObjectIdentifier'].lower()]
+                # TODO: either fix duplicate values in map, or add recursion flag check here
+                #       and append gp_guid to gp_link map here.
+                logger.trace("Adding gplink: {}".format( child_obj))
                 self.build_gplink_list_recurse(gp_guid, obj_id)
                 
     def build_gplink_list_recurse(self, gp_guid, obj_id):
@@ -104,12 +114,11 @@ class FileParser:
             return
         else:
             if gp_guid not in self.gp_link_map:
-                print("adding", gp_guid, "to link map")
+                logger.trace(f"adding {gp_guid} to link map")
                 self.gp_link_map[gp_guid] = []
             self.gp_link_map[gp_guid].append(obj)
-            if obj_id in self.obj_relationships_map and self.obj_relationships_map[obj_id] is not None:
+            if self.recurse and obj_id in self.obj_relationships_map and self.obj_relationships_map[obj_id] is not None:
                 for child_obj in self.obj_relationships_map[obj_id]:
-                    if self.recurse:
                         self.build_gplink_list_recurse(gp_guid, child_obj['ObjectIdentifier'].lower())
 
     def parse_files(self):
@@ -142,9 +151,9 @@ class FileParser:
                     gpo['PolicyData'] = self.grouper_map[guid_key]
 
                 gpo_guid = gpo['ObjectIdentifier'].lower()
-                # print("trying to match", ou_key)
+                # logger.trace("trying to match", ou_key)
                 if gpo_guid in self.gp_link_map:
-                    print("Found a matching link in OUs file for ", gpo_guid)
+                    logger.trace("Found a matching link in OUs file for {}".format(gpo_guid))
                     gpo['gpLinks'] = self.gp_link_map[gpo_guid]
                 output.append(gpo)
 

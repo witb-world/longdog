@@ -1,3 +1,4 @@
 click
 jq
 jsonlines
+loguru

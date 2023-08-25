@@ -10,8 +10,8 @@ GROUPER_PATH = ''
 SHARPHOUND_BASE_PATH = ''
 
 @click.command()
-@click.option('--grouper-input', help='Path to Group3r JSONL input', required=False, type=str)
-@click.option('--sharphound-dir', help='Path to directory containing SharpHound .json files', required=True, type=str)
+@click.option('--grouper-input', help='Path to Group3r JSONL input', required=False, type=click.Path())
+@click.option('--sharphound-dir', help='Path to directory containing SharpHound .json files', required=True, type=click.Path())
 @click.option('--output', default='longdog-out.json', help='Output file', type=str)
 @click.option('--recurse-links', help='Recursively resolve AD relatioinships for Group policy links. May degrade performance.', type=bool, default=False)
 
