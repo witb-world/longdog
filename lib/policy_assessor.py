@@ -76,16 +76,29 @@ findings_list = []
 
 # TODO: create a class for findings
 
-def build_finding_object(finding_obj, query_result):
+def build_finding_object(finding_obj, query_result, is_neg=False):
+    if is_neg:
+        logger.debug("NEGATIVE FINDING")
+    logger.debug("building finding...")
+    
     source_gpo = {}
     source_gpo['name'] = query_result['Properties']['name']
     source_gpo['distinguishedname'] = query_result['Properties']['distinguishedname']
 
     if query_result.get('gpLinks') == None or len(query_result['gpLinks']) == 0:
         links = 'Domain'
+        logger.debug('no links on this finding...')
+    elif is_neg:
+        # if this is a "negative finding", we don't need to actually return an object if the
+        # remediating policy is identified and applies to the whole domain.
+        for gp_link in query_result['gpLinks']:
+            if gp_link['name'] == gp_link['domain']:
+                logger.debug('negative finding applies to domain, discard...')
+                return
     else:
         links = query_result['gpLinks'] 
     
+
     source_gpo['links'] = links
     # finding_obj['source_gpo'] = source_gpo
     if finding_obj.get('flagged_policies') == None:
@@ -100,17 +113,28 @@ def assess_findings(output_path):
         with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
             finding_obj = json.load(finding_file)
             query_string = finding_obj['policy_object_query']
+            is_neg = finding_obj.get('negative_finding')
             query_compiled = jq.compile(query_string)
             query_result = query_compiled.input(gp_obj)
             logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
+            result_count = 0
             for res in query_result:
-                new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res)
+                result_count += 1
+                new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res, is_neg=is_neg)
                 # print(new_finding_obj)
                 findings_list.append(new_finding_obj)
                 # we can use this to confirm which policies have misconfigs
                 # now we want to make sure we can map this back to policy object, affected OUs
                 # --- this may mean changing query to return the GPO instead of the individual policy,
                 # --- or perhaps adding another query to each finding json file in order to pull this info.
+            # TODO: add check for condition where `is_neg=True` and there are no query results.
+            if result_count == 0 and is_neg:
+                logger.debug("Adding object for non-covered mitigation")
+                logger.debug(finding_obj)
+                finding_obj['flagged_policies'] = "NA"
+                findings_list.append(finding_obj)
+
+   
     gp_file.close()
 
     return json.dumps(findings_list)
