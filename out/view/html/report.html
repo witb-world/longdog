@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longdog Group Policy Report</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="../inc-longdog/helpers.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../inc-longdog/css/longdog.css">
+</head>
+
+<body>
+    <!------------------------>
+    <!-- Placeholders below -->
+    <!------------------------>
+
+    <!------------------------>
+    <!-- Fixed Title bar ----->
+    <!------------------------>
+
+    <div id="topNavbar" class="navbar">
+        <p>navbar</p>
+    </div>
+
+    <!------------------>
+    <!-- Container ----->
+    <!------------------>
+
+    <div id="containerUser" class="row">
+
+        <!------------------>
+        <!-- Findings ------>
+        <!------------------>
+        <div id="findings" class="col-sm-12">
+
+            <!-------------------->
+            <!-- Filter bar ------>
+            <!-------------------->
+            <div class="form-group container row">
+                <div class="col-sm-4">
+                    <input class="form-control dashboard-filter" type="text" id="dashboardFilter"
+                        placeholder="Filter findings">
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-light" id="finding-title">Show All</button>
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-success" id="finding-title-good">Good</button>
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-warning" id="finding-title-warning">Warning</button>
+                </div>
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-danger" id="finding-title-danger">Danger</button>
+                </div>
+            </div>
+
+            <!------------------------------>
+            <!-- Findings accordion table -->
+            <!------------------------------>
+            <!-- <ul class="list-group accordion">
+                <li>Accordion table goes here</li>
+                <div id="content">
+                    <script id="template" type="text/x-handlebars-template">
+                    {{#each results}}
+                    <li>
+                        <ul>
+                        <li>Name: {{description}}</li>
+                        <li>Age: {{rationale}}</li>
+                        </ul>
+                    </li>
+                    {{/each}}
+                </script>
+                </div> -->
+            <!-- Insert table template here! -->
+            <div id="content">
+                <script id="template" type="text/x-handlebars-template">
+
+            <ul class="list-group accordion">
+                {{#each_dict_as_sorted_list results}}
+
+                <div id="list-{{key}}" class="card finding_items">
+                    <div
+                        class="card-header row finding-title finding-title-{{dashboard_color level checked_items flagged_items}} plain-link">
+                        <div class="col-sm-11">
+                            <i
+                                class="fa finding-badge finding-badge-{{dashboard_color level checked_items flagged_items}}"></i>
+                            <a href="#item-{{key}}" data-toggle="collapse" role="button">{{description}}</a>
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="finding fa collapsed" style="background-color:transparent"
+                                data-toggle="collapse" data-target="#item-{{key}}" aria-expanded="false" aria-controls="item-{{key}}"
+                             >+</button>
+                        </div>
+                    </div>
+                    <div class="collapse" id="item-{{key}}" aria-labelledby="item-{{key}}" >
+                        <div class="card-body row">
+                            <div class="col-sm-8">
+                                <b>Description</b><br>
+                                {{#if rationale}}
+                                <p>{{{rationale}}}</p>
+                                {{else}}
+                                <p>No description available.</p>
+                                {{/if}}
+                                {{#if remediation}}
+                                <b>Remediation</b><br>
+                                <p>{{{remediation}}}</p>
+                                {{/if}}
+                                {{#if compliance}}
+                                <b>Compliance</b><br>
+                                <ul>
+                                    {{#each compliance}}
+                                    <li>{{this.name}} version {{this.version}}, reference {{this.reference}}</li>
+                                    {{/each}}
+                                </ul>
+                                <br>
+                                {{/if}}
+                                {{#if references}}
+                                <b>References</b><br>
+                                <ul>
+                                    {{#each references}}
+                                    <li><a href="{{this}}">{{this}}</a></li>
+                                    {{/each}}
+                                </ul>
+                                {{/if}}
+                            </div>
+                            <div class="col-sm-4">
+                                {{#if flagged_policies}}
+                                <b>Affected objects</b>
+                                <ul>
+                                    {{#each flagged_policies}}
+                                        {{#if this.links}}
+                                            {{#each this.links}}
+                                            <li>{{this.distinguishedname}}</li>
+                                            {{/each}}
+                                        {{/if}}
+                                    {{/each}}
+                                </ul>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each_dict_as_sorted_list}}
+            </ul>
+            </script>
+            </div>
+
+            <script>
+                // Register sorted-list helper.
+
+                // <!-- DEMO TEMPLATE DATA: -->
+                var data = {
+                    results: [
+                        {
+                            "description": "Insufficient Complexity Requirements in Password Policy",
+                            "rationale": "The password policy did not require the use of a sufficient humber of character sets. As a result, password complexity requirements were not in line with security best practice.",
+                            "remediation": "Ensure the password policy is configured to require at least one number, letter, and symbol.",
+                            "compliance": [],
+                            "references": [],
+                            "dashboard_name": "Password Policy",
+                            "flagged_policies": ["TODO"]
+                        },
+                        {
+                            "description": "Insecure LDAP Server Configuration",
+                            "rationale": "Without LDAP signing or LDAP channel binding, an attacker can man-in-the-middle LDAP communications between clients and domain controllers, and potentially escalate their privileges. Privileged NTLM authentication requests can also be relayed to LDAP services in order to attempt an escalation of privileges. ",
+                            "remediation": "Create a Group Policy for domain controllers to enforce LDAP signing and LDAP channel binding",
+                            "compliance": [],
+                            "references": ["https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server"],
+                            "dashboard_name": "Password Policy",
+                            "flagged_policies": [{ "name": "DEFAULT DOMAIN POLICY@WDTP.LOCAL", "distinguishedname": "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM,DC=WDTP,DC=LOCAL", "links": [{ "domain": "WDTP.LOCAL", "name": "WDTP.LOCAL", "distinguishedname": "DC=WDTP,DC=LOCAL", "domainsid": "S-1-5-21-1460404700-896234999-3538220560", "highvalue": true, "description": null, "whencreated": 1690307681, "functionallevel": "2016" }] }, { "name": "DEAD GPO@WDTP.LOCAL", "distinguishedname": "CN={456F7F2E-5D82-4384-99B7-93F6571A5D2D},CN=POLICIES,CN=SYSTEM,DC=WDTP,DC=LOCAL", "links": [{ "distinguishedname": "DC=WDTP,DC=LOCAL" }] }]
+                        }
+                    ]
+                }
+                var template = $('#template').html();
+                var compile = Handlebars.compile(template);
+                var res = compile(data);
+                $('#content').html(res);
+            </script>
+            <script>
+                // Dashboard filtering
+                $(document).ready(function () {
+                    // Filter by text search
+                    $(".dashboard-filter").on("keyup", function () {
+                        var value = $(this).val().toLowerCase()
+                        $(".finding_items").filter(function () {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        })
+                    })
+
+                    // Filter by button
+                    $('.btn').click(function () {
+                        var value = $(this).attr('id')
+                        console.log(value)
+                        if (value.indexOf('finding-title') > -1) {
+                            $(".finding_items").filter(function () {
+                                $(this).toggle($(this).find(">:first-child").attr("class").indexOf(value) > -1)
+                            });
+                        }
+                        $(".dashboard-filter").val("")
+                    })
+                })
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
