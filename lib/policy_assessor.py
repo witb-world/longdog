@@ -57,11 +57,16 @@
 # Performance may not be a huge issue here
 
 # it would be nice if we had a JQ query we could run for each of these...
+from enum import Enum
 import jq
 import json
 import os
 
 from loguru import logger
+
+class QueryType(Enum):
+    GET_POLICY_OBJECT = 1
+    GET_POLICY_SETTING = 2
 
 FINDINGS_DIR = 'rules/findings'
 
@@ -109,32 +114,56 @@ def build_finding_object(finding_obj, query_result, is_neg=False):
     logger.debug(f"Finding object contents: {finding_obj}")
     return finding_obj
 
+def make_jq_query(finding_obj, input_obj, query_type):
+    if query_type == QueryType.GET_POLICY_OBJECT:
+        query_string = finding_obj['policy_object_query']
+    elif query_type == QueryType.GET_POLICY_SETTING:
+        # TODO: 
+        if finding_obj.get('query') == None or finding_obj.get('query') == "":
+            logger.warning(f"No settings query found for finding {finding_obj['description']}")
+            return
+        query_string = finding_obj['query']
+        logger.warning(f"policy setting query: {query_string}")
+
+
+    query_compiled = jq.compile(query_string)
+    query_result = query_compiled.input(input_obj)
+    logger.debug(query_result)
+    logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
+    return query_result
+        
+def add_gp_settings_to_findings_obj(finding_obj, gp_obj):
+    if finding_obj is not None:
+        setting_result = make_jq_query(finding_obj=finding_obj, input_obj=gp_obj, query_type=QueryType.GET_POLICY_SETTING)
+        if setting_result is not None:
+            for setting_res in setting_result:
+                if finding_obj.get('gp_setting') == None:
+                    finding_obj['gp_setting'] = [setting_res]
+                else:
+                    finding_obj['gp_setting'].append(setting_result)
+
 def assess_findings(output_path):
     gp_file = open(output_path, 'r')
     gp_obj = json.load(gp_file)
     for finding_path in finding_paths:
         with open(f'{FINDINGS_DIR}/{finding_path}') as finding_file:
             finding_obj = json.load(finding_file)
-            query_string = finding_obj['policy_object_query']
+
             is_neg = finding_obj.get('negative_finding')
-            query_compiled = jq.compile(query_string)
-            query_result = query_compiled.input(gp_obj)
-            logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
+            query_result = make_jq_query(finding_obj=finding_obj, input_obj=gp_obj, query_type=QueryType.GET_POLICY_OBJECT)
             result_count = 0
             for res in query_result:
                 result_count += 1
                 new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res, is_neg=is_neg)
-                # print(new_finding_obj)
-                if new_finding_obj is not None:
-                    findings_list.append(new_finding_obj)
-                # we can use this to confirm which policies have misconfigs
-                # now we want to make sure we can map this back to policy object, affected OUs
-                # --- this may mean changing query to return the GPO instead of the individual policy,
-                # --- or perhaps adding another query to each finding json file in order to pull this info.
-            # TODO: add check for condition where `is_neg=True` and there are no query results.
+             
+                add_gp_settings_to_findings_obj(new_finding_obj, gp_obj)
+                findings_list.append(new_finding_obj)
+
             if result_count == 0 and is_neg:
                 logger.debug("Adding object for non-covered mitigation")
                 finding_obj['flagged_policies'] = "NA"
+                finding_obj['gp_setting'] = make_jq_query(finding_obj=finding_obj, input_obj=gp_obj, query_type=QueryType.GET_POLICY_SETTING)
+                add_gp_settings_to_findings_obj(finding_obj, gp_obj)
                 findings_list.append(finding_obj)
 
     gp_file.close()
