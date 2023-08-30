@@ -85,6 +85,7 @@ def build_finding_object(finding_obj, query_result, is_neg=False):
     source_gpo['name'] = query_result['Properties']['name']
     source_gpo['distinguishedname'] = query_result['Properties']['distinguishedname']
 
+    # TODO: clean up this branching behavior
     if query_result.get('gpLinks') == None or len(query_result['gpLinks']) == 0:
         links = 'Domain'
         logger.debug('no links on this finding...')
@@ -95,6 +96,7 @@ def build_finding_object(finding_obj, query_result, is_neg=False):
             if gp_link['name'] == gp_link['domain']:
                 logger.debug('negative finding applies to domain, discard...')
                 return
+        links = query_result['gpLinks'] 
     else:
         links = query_result['gpLinks'] 
     
@@ -104,6 +106,7 @@ def build_finding_object(finding_obj, query_result, is_neg=False):
     if finding_obj.get('flagged_policies') == None:
         finding_obj['flagged_policies'] = []
     finding_obj['flagged_policies'].append(source_gpo)
+    logger.debug(f"Finding object contents: {finding_obj}")
     return finding_obj
 
 def assess_findings(output_path):
@@ -122,7 +125,8 @@ def assess_findings(output_path):
                 result_count += 1
                 new_finding_obj = build_finding_object(finding_obj=finding_obj, query_result=res, is_neg=is_neg)
                 # print(new_finding_obj)
-                findings_list.append(new_finding_obj)
+                if new_finding_obj is not None:
+                    findings_list.append(new_finding_obj)
                 # we can use this to confirm which policies have misconfigs
                 # now we want to make sure we can map this back to policy object, affected OUs
                 # --- this may mean changing query to return the GPO instead of the individual policy,
@@ -130,13 +134,11 @@ def assess_findings(output_path):
             # TODO: add check for condition where `is_neg=True` and there are no query results.
             if result_count == 0 and is_neg:
                 logger.debug("Adding object for non-covered mitigation")
-                logger.debug(finding_obj)
                 finding_obj['flagged_policies'] = "NA"
                 findings_list.append(finding_obj)
 
-   
     gp_file.close()
-
+    # logger.debug(f"Final findings list: {findings_list}")
     return json.dumps(findings_list)
 
 
