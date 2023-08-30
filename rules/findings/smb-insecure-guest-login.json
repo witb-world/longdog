@@ -1,0 +1,15 @@
+{
+    "description": "Insecure Guest Login allowed for SMB",
+    "rationale": "The SMB configuration allows for connections to be made to an SMB server as a guest account without credentials if credentialed login fails. This may allow an attacker to deliver malicious files to the target.",
+    "remediation": "Disable insecure guest login in Group Policy. This feature may be disabled automatically in recent versions of Windows.",
+    "compliance": [],
+    "references": [
+        "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/guest-access-in-smb2-is-disabled-by-default",
+        "https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-defend-users-from-interception-attacks-via-smb-client/ba-p/1494995"
+    ],
+    "dashboard_name": "SMB Configuration",
+    "query": "",
+    "negative_finding": true,
+    "level": "Warning",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting? | .ServiceName == \"Webclient\" and .StartupType == \"DISABLED\")"
+}

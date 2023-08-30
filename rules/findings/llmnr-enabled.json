@@ -3,7 +3,12 @@
     "rationale": "Attackers may perform a MITM on the Link-Local Mulitcast Name Resolution service in order to collect or relay credentials on a Windows network. ",
     "remediation": "Ensure LLMNR is disabled in favor of more secure name resolution services. Also consider distributing a script to disable NetBIOS name resolution via Group Policy.",
     "compliance": [],
-    "references": ["https://attack.mitre.org/techniques/T1557/001/", "https://www.ietf.org/rfc/rfc4795.txt", "https://techcommunity.microsoft.com/t5/networking-blog/aligning-on-mdns-ramping-down-netbios-name-resolution-and-llmnr/ba-p/3290816", ""],
+    "references": [
+        "https://attack.mitre.org/techniques/T1557/001/",
+        "https://www.ietf.org/rfc/rfc4795.txt",
+        "https://techcommunity.microsoft.com/t5/networking-blog/aligning-on-mdns-ramping-down-netbios-name-resolution-and-llmnr/ba-p/3290816"
+    ],
+    "level": "Danger",
     "dashboard_name": "Network Settings",
     "negative_finding": true,
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName == \"EnableMulticast\" and .ValueString == \"0\")"
