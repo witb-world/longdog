@@ -41,7 +41,7 @@ As noted above, the `--sharphound-dir` flag should be followed by the path to th
     - For large domains, it is recommended to set `--recurse-links` to `off` (default), as the current build of this tool has inefficient processing logic.
     - For now, running `main.py` will print a map of findings and their details to affected linked AD objects to `STDOUT`. The path specified in `--output` contains a map of all Group3r output to affected objects.
 - [ ] Build a comprehensive list of findings
-    - Currently `rules/findings` directory contains just three findings for testing steps listed above.
+    - Currently `rules/findings` directory contains just a handful of findings for testing steps listed above.
 - [ ] Create HTML/Bootstrap reporting frontend
 
 ### Longterm roadmap
