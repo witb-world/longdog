@@ -18,6 +18,8 @@
         crossorigin="anonymous"></script>
     <script src="../inc-longdog/helpers.js"></script>
 
+    <script src="../../../findings_output.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -162,30 +164,9 @@
             </div>
 
             <script>
-                // Register sorted-list helper.
-
                 // <!-- DEMO TEMPLATE DATA: -->
                 var data = {
-                    results: [
-                        {
-                            "description": "Insufficient Complexity Requirements in Password Policy",
-                            "rationale": "The password policy did not require the use of a sufficient humber of character sets. As a result, password complexity requirements were not in line with security best practice.",
-                            "remediation": "Ensure the password policy is configured to require at least one number, letter, and symbol.",
-                            "compliance": [],
-                            "references": [],
-                            "dashboard_name": "Password Policy",
-                            "flagged_policies": ["TODO"]
-                        },
-                        {
-                            "description": "Insecure LDAP Server Configuration",
-                            "rationale": "Without LDAP signing or LDAP channel binding, an attacker can man-in-the-middle LDAP communications between clients and domain controllers, and potentially escalate their privileges. Privileged NTLM authentication requests can also be relayed to LDAP services in order to attempt an escalation of privileges. ",
-                            "remediation": "Create a Group Policy for domain controllers to enforce LDAP signing and LDAP channel binding",
-                            "compliance": [],
-                            "references": ["https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server"],
-                            "dashboard_name": "Password Policy",
-                            "flagged_policies": [{ "name": "DEFAULT DOMAIN POLICY@WDTP.LOCAL", "distinguishedname": "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM,DC=WDTP,DC=LOCAL", "links": [{ "domain": "WDTP.LOCAL", "name": "WDTP.LOCAL", "distinguishedname": "DC=WDTP,DC=LOCAL", "domainsid": "S-1-5-21-1460404700-896234999-3538220560", "highvalue": true, "description": null, "whencreated": 1690307681, "functionallevel": "2016" }] }, { "name": "DEAD GPO@WDTP.LOCAL", "distinguishedname": "CN={456F7F2E-5D82-4384-99B7-93F6571A5D2D},CN=POLICIES,CN=SYSTEM,DC=WDTP,DC=LOCAL", "links": [{ "distinguishedname": "DC=WDTP,DC=LOCAL" }] }]
-                        }
-                    ]
+                    results: results
                 }
                 var template = $('#template').html();
                 var compile = Handlebars.compile(template);

@@ -1,0 +1,14 @@
+{
+    "description": "WebDAV service not disabled",
+    "rationale": "WebDAV allows connections to UNC paths over HTTP. An attacker may be able to downgrade WebDAV connections to unencrypted protocols, enabling interception-based attacks.",
+    "remediation": "Stop and disable the WebDAV service on domain-joined machines. This may be performed over a Group Policy Preference or via PowerShell. ",
+    "compliance": [],
+    "references": [
+        "https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-defend-users-from-interception-attacks-via-smb-client/ba-p/1494995"
+    ],
+    "dashboard_name": "SMB Configuration",
+    "query": "",
+    "negative_finding": true,
+    "level": "Warning",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName == \"AllowInsecureGuestAuth\" and .ValueString == \"0\")"
+}

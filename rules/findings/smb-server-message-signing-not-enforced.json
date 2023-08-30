@@ -1,0 +1,15 @@
+{
+    "description": "SMB Server Message Signing Not Enforced",
+    "rationale": "Without message signing enforced, SMB clients may opt out of signing messages. Without SMB message signatures guaranteeing integrity, users may be exposed to various MITM attack techniques.",
+    "remediation": "Ensure that message signing is required, rather than simply enabled. In addition to enforcing this requirement from server-initiated connections, ensure client-side negotiation settings enforce signing requirements in addition to servers.",
+    "compliance": [],
+    "references": [
+        "https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-defend-users-from-interception-attacks-via-smb-client/ba-p/1494995",
+        "https://techcommunity.microsoft.com/t5/storage-at-microsoft/configure-smb-signing-with-confidence/ba-p/2418102"
+    ],
+    "dashboard_name": "SMB Configuration",
+    "query": "",
+    "negative_finding": true,
+    "level":"Danger",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Services\\\\LanManServer\\\\Parameters\" and .Values[].ValueName == \"RequireSecuritySignature\" and .Values[].ValueString == \"1\")"
+}
