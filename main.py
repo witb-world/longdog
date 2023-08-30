@@ -1,7 +1,5 @@
 import click
 import json
-import jsonlines
-import re
 import os
 from lib import file_parser, policy_assessor
 
@@ -34,7 +32,7 @@ def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_
     with open(output, 'w') as mapped:
         json.dump(res, mapped)
     
-    findings = policy_assessor.assess_findings(output_path=output)
+    findings = policy_assessor.assess_findings(parser_result_path=output)
 
     with open(findings_output, 'w') as findings_file:
         findings_file.write(f"results = {findings}")
