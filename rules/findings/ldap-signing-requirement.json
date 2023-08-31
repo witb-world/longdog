@@ -4,7 +4,7 @@
     "remediation": "Create a Group Policy for domain controllers to enforce LDAP signing and LDAP channel binding",
     "compliance": [],
     "references": ["https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server"],
-    "dashboard_name": "Password Policy",
+    "dashboard_name": "Network Security Settings",
     "level": "Danger",
     "query": ".[].PolicyData.SettingResults[].Setting | select(.Values[]?.ValueName == \"LDAPClientIntegrity\")  | select(.Values[]?.ValueString != \"1\")",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName== \"LDAPClientIntegrity\" and .ValueString != \"1\")?"
