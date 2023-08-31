@@ -141,7 +141,8 @@ def assess_findings(parser_result_path: str):
                 new_finding_obj = build_finding_object(finding_obj=finding_obj, gp_obj=res, is_neg=is_neg)
              
                 add_gp_settings_to_findings_obj(new_finding_obj, gp_obj)
-                findings_list.append(new_finding_obj)
+                if new_finding_obj is not None:
+                    findings_list.append(new_finding_obj)
 
             if result_count == 0 and is_neg:
                 logger.debug("Adding object for non-covered mitigation")
