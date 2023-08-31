@@ -107,11 +107,16 @@ def add_gp_settings_to_findings_obj(finding_obj: dict, gp_obj: dict):
     if finding_obj is not None:
         setting_result = make_jq_query(finding_obj=finding_obj, gp_obj=gp_obj, query_type=QueryType.GET_POLICY_SETTING)
         if setting_result is not None:
-            for setting_res in setting_result:
-                if finding_obj.get('gp_setting') == None:
-                    finding_obj['gp_setting'] = [setting_res]
-                else:
-                    finding_obj['gp_setting'].append(setting_result)
+            logger.warning(setting_result)
+            # Wrap potentially "empty" iterator in try-except block.
+            try:
+                for setting_res in setting_result:
+                    if finding_obj.get('gp_setting') == None:
+                        finding_obj['gp_setting'] = [setting_res]
+                    else:
+                        finding_obj['gp_setting'].append(setting_result)
+            except ValueError:
+                logger.warning(f"Spent iterator on {finding_obj['description']}")
 
 def assess_findings(parser_result_path: str):
     """
