@@ -7,7 +7,7 @@
         "https://techcommunity.microsoft.com/t5/itops-talk-blog/how-to-defend-users-from-interception-attacks-via-smb-client/ba-p/1494995"
     ],
     "dashboard_name": "SMB Configuration",
-    "query": "",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Values[]?.ValueName == \"AllowInsecureGuestAuth\" and .Values[]?.ValueString == \"0\")",
     "negative_finding": true,
     "level": "Warning",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName == \"AllowInsecureGuestAuth\" and .ValueString == \"0\")"

@@ -1,0 +1,13 @@
+{
+    "description": "Configuration Allows LM Hash Value To Be Stored",
+    "rationale": "If this setting is disabled, the system allows for the storage of cryptographically weak LM hashes. An attacker can easily crack this hash to retrieve credentials for users who have changed their passwords on the local computer.",
+    "remediation": "If compatibility with third-party services allows, disable sending unencrypted passwords over SMB to third-party servers.",
+    "compliance": [],
+    "references": [
+        "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/prevent-windows-store-lm-hash-password"
+    ],
+    "dashboard_name": "Password Policy",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"NoLMHash\" and .Values[].ValueString == \"0\")",
+    "level": "Danger",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"NoLMHash\" and .Values[].ValueString == \"0\")"
+}
