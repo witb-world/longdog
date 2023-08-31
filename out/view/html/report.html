@@ -140,6 +140,12 @@
                                     {{/each}}
                                 </ul>
                                 {{/if}}
+                                {{#if gp_setting}}
+                                <a data-toggle="collapse" href="#gp-setting-item-{{key}}" role="button"><b>JSONinified Policy Settings</b></a>
+                                <div class="collapse" id="gp-setting-item-{{key}}" aria-labelledby="gp-setting-item-{{key}}" aria-expanded="false">
+                                <pre>{{json gp_setting}}</pre>
+                                </div>
+                                {{/if}}
                             </div>
                             <div class="col-sm-4">
                                 {{#if flagged_policies}}
