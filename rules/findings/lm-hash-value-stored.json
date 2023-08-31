@@ -7,7 +7,7 @@
         "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/prevent-windows-store-lm-hash-password"
     ],
     "dashboard_name": "Password Policy",
-    "query": "",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"NoLMHash\" and .Values[].ValueString == \"0\")",
     "level": "Danger",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"NoLMHash\" and .Values[].ValueString == \"0\")"
 }

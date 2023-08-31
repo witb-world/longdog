@@ -8,7 +8,7 @@
         "https://techcommunity.microsoft.com/t5/storage-at-microsoft/configure-smb-signing-with-confidence/ba-p/2418102"
     ],
     "dashboard_name": "SMB Configuration",
-    "query": "",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Services\\\\LanManServer\\\\Parameters\" and .Values[].ValueName == \"RequireSecuritySignature\" and .Values[].ValueString == \"1\")",
     "negative_finding": true,
     "level":"Danger",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Services\\\\LanManServer\\\\Parameters\" and .Values[].ValueName == \"RequireSecuritySignature\" and .Values[].ValueString == \"1\")"

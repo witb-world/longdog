@@ -11,5 +11,6 @@
     "level": "Danger",
     "dashboard_name": "Network Settings",
     "negative_finding": true,
+    "query": ".[].PolicyData.SettingResults[].Setting | select (.Values[].ValueName == \"EnableMulticast\" and .Values[].ValueString == \"0\")",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName == \"EnableMulticast\" and .ValueString == \"0\")"
 }
