@@ -10,6 +10,6 @@
     "dashboard_name": "SMB Configuration",
     "query": ".[].PolicyData.SettingResults[].Setting | select(.ServiceName == \"Webclient\" and .StartupType == \"DISABLED\")",
     "negative_finding": true,
-    "level": "Warning",
+    "level": "warning",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting? | .ServiceName == \"Webclient\" and .StartupType == \"DISABLED\")"
 }
