@@ -33,7 +33,7 @@ def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_
     
     findings = policy_assessor.assess_findings(parser_result_path=output)
 
-    ld_report = report_creator.LongdogReport(f'./{findings_output}/')
+    ld_report = report_creator.LongdogReport(findings_output)
 
     ld_report.make_report_dir()
     ld_report.write_findings_file(findings)

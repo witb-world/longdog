@@ -3,6 +3,7 @@ Produce a report from some findings output
 """
 import bs4
 import os
+from pathlib import Path
 import shutil
 
 from loguru import logger
@@ -18,8 +19,8 @@ class LongdogReport:
     def __init__(self, report_path):
         # n.b.: we'll probably have to parse this path to make sure the formatting works
         # or use another library besides strings.
-        self.report_path = report_path
-        self.findings_file_path = self.report_path + FINDINGS_PATHNAME
+        self.report_path = Path(report_path)
+        self.findings_file_path = self.report_path.joinpath(FINDINGS_PATHNAME)
         self.findings_filename = FINDINGS_PATHNAME
 
 
