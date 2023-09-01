@@ -5,29 +5,17 @@ Handlebars.registerHelper('each_dict_as_sorted_list', function (context, options
     var ret = ''
 
     var sortedFindingsKeys = Object.keys(context).sort(function (a, b) {
-        if (context[a].flagged_items === 0 && context[b].flagged_items === 0) {
-            if (context[a].checked_items === 0 && context[b].checked_items !== 0) return 1
-            if (context[a].checked_items !== 0 && context[b].checked_items === 0) return -1
+        if (context[a].level === context[b].level) {
+            console.log(`${context[a].level}`)
             if (context[a].description.toLowerCase() < context[b].description.toLowerCase()) return -1
             if (context[a].description.toLowerCase() > context[b].description.toLowerCase()) return 1
-        }
-        if ((context[a].flagged_items == 0 && context[b].flagged_items > 0) ||
-            (context[a].flagged_items > 0 && context[b].flagged_items === 0)) {
-            if (context[a].flagged_items > context[b].flagged_items) return -1
-            return 1
-        }
-        if (context[a].flagged_items > 0 && context[b].flagged_items > 0) {
-            if (context[a].level === context[b].level) {
-                if (context[a].description.toLowerCase() < context[b].description.toLowerCase()) return -1
-                if (context[a].description.toLowerCase() > context[b].description.toLowerCase()) return 1
-            } else {
-                if (context[a].level.toLowerCase() === 'danger') return -1
-                if (context[b].level.toLowerCase() === 'danger') return 1
-                if (context[a].level.toLowerCase() === 'warning') return -1 // FIXME - these are duplicated for nothing?
-                if (context[b].level.toLowerCase() === 'warning') return 1
-                if (context[a].level.toLowerCase() === 'warning') return -1
-                if (context[b].level.toLowerCase() === 'warning') return 1
-            }
+        } else {
+            if (context[a].level.toLowerCase() === 'danger') return -1
+            if (context[b].level.toLowerCase() === 'danger') return 1
+            if (context[a].level.toLowerCase() === 'warning') return -1 // FIXME - these are duplicated for nothing?
+            if (context[b].level.toLowerCase() === 'warning') return 1
+            if (context[a].level.toLowerCase() === 'warning') return -1
+            if (context[b].level.toLowerCase() === 'warning') return 1
         }
         return 0
     })
@@ -52,6 +40,6 @@ Handlebars.registerHelper('dashboard_color', function (level, checked, flagged) 
     }
 })
 
-Handlebars.registerHelper('json', function(context) {
+Handlebars.registerHelper('json', function (context) {
     return JSON.stringify(context, null, 2);
 });
