@@ -1,12 +1,11 @@
 import click
 import json
 import os
-from lib import file_parser, policy_assessor
-
+from lib import file_parser, policy_assessor, report_creator
 # Just putting these here for global accessibility now, will move into classes later
 GROUPER_PATH = ''
 SHARPHOUND_BASE_PATH = ''
-
+≥
 @click.command()
 @click.option('--grouper-input', help='Path to Group3r JSONL input', required=False, type=click.Path())
 @click.option('--sharphound-dir', help='Path to directory containing SharpHound .json files', required=True, type=click.Path())
@@ -37,6 +36,7 @@ def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_
     with open(findings_output, 'w') as findings_file:
         findings_file.write(f"results = {findings}")
 
+    report_creator.produce_report(findings_output)
 
 if __name__ == '__main__':
     run_longdog()
