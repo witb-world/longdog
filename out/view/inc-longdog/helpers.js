@@ -51,3 +51,7 @@ Handlebars.registerHelper('dashboard_color', function (level, checked, flagged) 
         return level
     }
 })
+
+Handlebars.registerHelper('json', function(context) {
+    return JSON.stringify(context, null, 2);
+});
