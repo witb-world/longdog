@@ -8,7 +8,7 @@
         "https://www.ietf.org/rfc/rfc4795.txt",
         "https://techcommunity.microsoft.com/t5/networking-blog/aligning-on-mdns-ramping-down-netbios-name-resolution-and-llmnr/ba-p/3290816"
     ],
-    "level": "Danger",
+    "level": "danger",
     "dashboard_name": "Network Settings",
     "negative_finding": true,
     "query": ".[].PolicyData.SettingResults[].Setting | select (.Values[].ValueName == \"EnableMulticast\" and .Values[].ValueString == \"0\")",

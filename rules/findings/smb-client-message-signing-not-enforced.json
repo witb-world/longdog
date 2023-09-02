@@ -9,7 +9,7 @@
     ],
     "dashboard_name": "SMB Configuration",
     "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Services\\\\LanmanWorkstation\\\\Parameters\" and .Values[].ValueName == \"RequireSecuritySignature\" and .Values[].ValueString == \"1\")",
-    "level": "Danger",
+    "level": "danger",
     "negative_finding": true,
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Services\\\\LanmanWorkstation\\\\Parameters\" and .Values[].ValueName == \"RequireSecuritySignature\" and .Values[].ValueString == \"1\")"
 }

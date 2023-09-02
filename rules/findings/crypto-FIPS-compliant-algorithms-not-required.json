@@ -9,7 +9,7 @@
         "https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/system-cryptography-use-fips-compliant-algorithms-for-encryption-hashing-and-signing",
         "https://www.tenable.com/audits/items/CIS_Microsoft_Windows_Server_2019_STIG_v1.0.1_STIG_DC.audit:5fb4e52b0d948596ecbc571007e356b4"
     ],
-    "level": "Warning",
+    "level": "warning",
     "dashboard_name": "Cryptography Settings",
     "negative_finding": true,
     "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\\\\FIPSAlgorithmPolicy\" and .Values[].ValueName==\"Enabled\" and .Values[].ValueString==\"1\")",

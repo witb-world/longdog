@@ -9,6 +9,6 @@
     "dashboard_name": "SMB Configuration",
     "query": ".[].PolicyData.SettingResults[].Setting | select(.Values[]?.ValueName == \"AllowInsecureGuestAuth\" and .Values[]?.ValueString == \"0\")",
     "negative_finding": true,
-    "level": "Warning",
+    "level": "warning",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting.Values[]? | .ValueName == \"AllowInsecureGuestAuth\" and .ValueString == \"0\")"
 }
