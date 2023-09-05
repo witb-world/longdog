@@ -1,0 +1,11 @@
+{
+    "description": "UAC Disabled for Software Installation",
+    "rationale": "Installer detection is disabled in User Account Control Settings. This means a user can install software on a machine without administrative privileges. This can expose a system to privilege escalation and data exfiltration attacks. ",
+    "remediation": "Ensure software installation is managed by administrators only. Ensure administrators have a means to inventory the software installed on managed systems.",
+    "compliance": [],
+    "references": [],
+    "dashboard_name": "User Access Control",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\" and .Values[].ValueName == \"EnableInstallerDetection\" and .Values[].ValueString == \"0\")",
+    "level":"danger",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Policies\\\\System\" and .Values[].ValueName == \"EnableInstallerDetection\" and .Values[].ValueString == \"0\")"
+}
