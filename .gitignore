@@ -181,3 +181,10 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 lib/__pycache__/file_parser.cpython-311.pyc
+
+# Default results directory
+
+results/
+
+# demo outputs
+./*.json
