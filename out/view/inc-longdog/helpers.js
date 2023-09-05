@@ -6,7 +6,6 @@ Handlebars.registerHelper('each_dict_as_sorted_list', function (context, options
 
     var sortedFindingsKeys = Object.keys(context).sort(function (a, b) {
         if (context[a].level === context[b].level) {
-            console.log(`${context[a].level}`)
             if (context[a].description.toLowerCase() < context[b].description.toLowerCase()) return -1
             if (context[a].description.toLowerCase() > context[b].description.toLowerCase()) return 1
         } else {
@@ -42,4 +41,9 @@ Handlebars.registerHelper('dashboard_color', function (level, checked, flagged) 
 
 Handlebars.registerHelper('json', function (context) {
     return JSON.stringify(context, null, 2);
+});
+
+Handlebars.registerHelper('mitigations_defined', function (negative_finding, flagged_policies){
+    console.log("negative", negative_finding, "flagged: ", flagged_policies);
+    return negative_finding && flagged_policies == "NA";
 });
