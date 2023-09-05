@@ -1,0 +1,12 @@
+{
+    "description": "Users May Pause Windows Defender Scans",
+    "rationale": "Users may pause the Windows Defender process in the middle of a scan. This may prevent malware from being detected on the system. ",
+    "remediation": "Ensure users are not able to pause Defender scans.",
+    "compliance": [],
+    "references": [],
+    "dashboard_name": "Windows Defender",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"Policies\\\\Microsoft\\\\Windows Defender\\\\Scan\" and .Values[].ValueName == \"AllowPause\" and .Values[].ValueString == \"0\")",
+    "level": "good",
+    "negative_finding": true,
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"Policies\\\\Microsoft\\\\Windows Defender\\\\Scan\" and .Values[].ValueName == \"AllowPause\" and .Values[].ValueString == \"0\")"
+}
