@@ -23,6 +23,8 @@ finding_paths = os.listdir(FINDINGS_DIR)
 
 findings_list = []
 
+discarded_findings =  set()
+
 # TODO: create a class for findings instead of unstructured JSON.
 def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False):
     """
@@ -52,8 +54,10 @@ def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False):
         # if this is a "negative finding", we don't need to actually return an object if the
         # remediating policy is identified and applies to the whole domain.
         for gp_link in gp_obj['gpLinks']:
-            if gp_link['name'] == gp_link['domain']:
-                logger.debug('negative finding applies to domain, discard...')
+            if gp_link['name'] == gp_link['domain'] or finding_obj['description'] in discarded_findings: # TODO also check if finding is in discarded_findings set.
+                logger.debug(f'negative finding {finding_obj["description"]} applies to domain, discard...')
+                # TODO: add finding description (or ID) to discarded_findings set 
+                discarded_findings.add(finding_obj['description'])
                 return
         links = gp_obj['gpLinks'] 
     else:
