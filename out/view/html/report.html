@@ -157,11 +157,14 @@
                             </div>
                             <div class="col-sm-4">
                                 {{#if flagged_policies}}
-                                {{#if negative_finding}}
-                                <b>Protected objects</b>
-                                {{else}}
-                                <b>Affected objects</b>
-                                {{/if}}
+                                    {{#if negative_finding}}
+                                        <b>Protected objects</b>
+                                        {{else}}
+                                        <b>Affected objects</b>
+                                    {{/if}}
+                                    {{#if (mitigations_defined negative_finding flagged_policies) }}
+                                        <p>No mitigating policies in place.</p>
+                                    {{/if}}
                                 <ul>
                                     {{#each flagged_policies}}
                                         {{#if this.links}}
