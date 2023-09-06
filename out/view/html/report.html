@@ -165,15 +165,28 @@
                                     {{#if (mitigations_defined negative_finding flagged_policies) }}
                                         <p>No mitigating policies in place.</p>
                                     {{/if}}
-                                <ul>
                                     {{#each flagged_policies}}
-                                        {{#if this.links}}
-                                            {{#each this.links}}
-                                            <li>{{this.distinguishedname}}</li>
-                                            {{/each}}
+                                        {{#if links}}
+                                            {{#if (many_gplinks links)}}
+                                                <br>
+                                                <a data-toggle="collapse" href="#gpLink-{{key}}-{{this.distinguishedname}}" role="button">{{this.name}}</a>
+                                                <div class="collapse" id="gpLink-{{key}}-{{this.distinguishedname}}" aria-labelledby="pLink-{{key}}-{{this.distinguishedname}}" aria-expanded="false">
+                                                    <pre>
+                                                    {{#each links}}
+{{this.distinguishedname}}
+                                                    {{/each}}
+                                                    </pre>
+                                                </div>
+                                            {{else}}
+                                            <ul>
+                                                {{#each links}}
+                                                    <li>{{this.distinguishedname}}</li>
+                                                {{/each}}
+                                            </ul>
+                                            {{/if}}
                                         {{/if}}
+                                        
                                     {{/each}}
-                                </ul>
                                 {{/if}}
                             </div>
                         </div>

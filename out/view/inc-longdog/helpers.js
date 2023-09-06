@@ -47,3 +47,7 @@ Handlebars.registerHelper('mitigations_defined', function (negative_finding, fla
     console.log("negative", negative_finding, "flagged: ", flagged_policies);
     return negative_finding && flagged_policies == "NA";
 });
+
+Handlebars.registerHelper('many_gplinks', function (links) {
+    return links.length > 3;
+});
