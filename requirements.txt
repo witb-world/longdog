@@ -1,5 +1,6 @@
 beautifulsoup4
 click
 jq
+jsondiff
 jsonlines
 loguru

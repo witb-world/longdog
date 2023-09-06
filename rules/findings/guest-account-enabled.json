@@ -1,0 +1,11 @@
+{
+    "description": "Guest Account Enabled",
+    "rationale": "The Guest account is enabled on local machines due to the enforcement of this policy. This may grant access to machines affected by this policy without a set of valid credentials.",
+    "remediation": "Disable uncrendentialed access wherever possible.",
+    "compliance": [],
+    "references": [],
+    "dashboard_name": "Password Policy",
+    "level": "warning",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.SettingName==\"EnableGuestAccount\") | select(.ValueString == \"1\")",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting? | .SettingName==\"EnableGuestAccount\" and .ValueString == \"1\")"
+}

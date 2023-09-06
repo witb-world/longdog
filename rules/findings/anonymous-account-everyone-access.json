@@ -1,0 +1,11 @@
+{
+    "description": "Everyone Permission Extends to Anonymous Accounts",
+    "rationale": "Anonymous users may access any resource that is reachable by the \"Everyone\" permission. ",
+    "remediation": "Review access control settings following principle of least privilege.",
+    "compliance": [],
+    "references": [],
+    "dashboard_name": "Network Settings",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"EveryoneIncludesAnonymous\" and .Values[].ValueString == \"1\")",
+    "level":"warning",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"System\\\\CurrentControlSet\\\\Control\\\\Lsa\" and .Values[].ValueName == \"EveryoneIncludesAnonymous\" and .Values[].ValueString == \"1\")"
+}

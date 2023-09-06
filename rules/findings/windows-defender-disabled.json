@@ -1,0 +1,11 @@
+{
+    "description": "Windows Defender Disabled",
+    "rationale": "Windows Defender is disabled through this policy. Without another antivirus solution this may expose users of the system to malware. ",
+    "remediation": "Configure Windows Defender or some other AV solution to run and scan machines for malware.",
+    "compliance": [],
+    "references": [],
+    "dashboard_name": "Windows Defender",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.Key == \"Policies\\\\Microsoft\\\\Windows Defender\" and .Values[].ValueName == \"DisableAntiSpyware\" and .Values[].ValueString == \"1\")",
+    "level":"danger",
+    "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting | .Key == \"Policies\\\\Microsoft\\\\Windows Defender\" and .Values[].ValueName == \"DisableAntiSpyware\" and .Values[].ValueString == \"1\")"
+}

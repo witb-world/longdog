@@ -1,0 +1,2573 @@
+[
+    {
+        "Properties": {
+            "domain": "URTH2.LOCAL.COM",
+            "name": "DEFAULT DOMAIN POLICY@URTH2.LOCAL.COM",
+            "distinguishedname": "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM,DC=URTH2,DC=LOCAL,DC=COM",
+            "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+            "highvalue": false,
+            "description": null,
+            "whencreated": 1693234429,
+            "gpcpath": "\\\\URTH2.LOCAL.COM\\SYSVOL\\URTH2.LOCAL.COM\\POLICIES\\{31B2F340-016D-11D2-945F-00C04FB984F9}"
+        },
+        "Aces": [
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "Owns",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            }
+        ],
+        "ObjectIdentifier": "7E824AE2-13A6-427C-97AD-30D5C0927E47",
+        "IsDeleted": false,
+        "IsACLProtected": true,
+        "PolicyData": {
+            "Attributes": {
+                "IsMorphedGPO": false,
+                "GpoLinks": [
+                    {
+                        "LinkPath": "DC=URTH2,DC=local,DC=com",
+                        "LinkEnforced": "Enabled, Unenforced"
+                    }
+                ],
+                "DisplayName": "Default Domain Policy",
+                "CreatedDate": "2023-08-28T14:53:49-07:00",
+                "ModifiedDate": "2023-08-30T11:03:22-07:00",
+                "NtSecurityDescriptorSddl": {
+                    "Raw": "O:DAD:PAI(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CI;LCRPLORC;;;AU)(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;CI;LCRPLORC;;;ED)",
+                    "Owner": {
+                        "Raw": "DA",
+                        "Alias": "Domain Admins",
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "Dacl": {
+                        "Raw": "PAI(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CI;LCRPLORC;;;AU)(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;CI;LCRPLORC;;;ED)",
+                        "Flags": [
+                            "PROTECTED",
+                            "AUTO_INHERITED"
+                        ],
+                        "Aces": [
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                    "Alias": "Enterprise Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                    "Alias": "Enterprise Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "CO",
+                                    "Alias": "Creator Owner",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "SY",
+                                    "Alias": "Local System",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;AU",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU",
+                                "AceType": "OBJECT_ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CONTROL_ACCESS"
+                                ],
+                                "ObjectGuid": "edacfd8f-ffb3-11d1-b41d-00a0c968f939",
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;ED",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "ED",
+                                    "Alias": "Enterprise Domain Controllers",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            }
+                        ],
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "IsValid": true,
+                    "Errors": []
+                },
+                "DistinguishedName": "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=URTH2,DC=local,DC=com",
+                "PathInSysvol": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}",
+                "Uid": "{31B2F340-016D-11D2-945F-00C04FB984F9}",
+                "VersionNumber": "6",
+                "ComputerPolicyEnabled": true,
+                "UserPolicyEnabled": true
+            },
+            "GpoAclResult": [],
+            "GpoAttributeFindings": [
+                {
+                    "FindingReason": "Found some interesting ACLs on this GPO. Might wanna check 'em out.",
+                    "FindingDetail": "IDK just look at it jeez.",
+                    "Triage": "Black",
+                    "PathFindings": [],
+                    "AclResult": [
+                        {
+                            "Trustee": {
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "Owner"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                "DisplayName": "Enterprise Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                "DisplayName": "Enterprise Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "CO",
+                                "DisplayName": "Creator Owner"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "SY",
+                                "DisplayName": "Local System"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CONTROL_ACCESS"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "ED",
+                                "DisplayName": "Enterprise Domain Controllers"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "SettingResults": [
+                {
+                    "Setting": {
+                        "SettingName": "MinimumPasswordAge",
+                        "ValueString": "1",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "MaximumPasswordAge",
+                        "ValueString": "42",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "MinimumPasswordLength",
+                        "ValueString": "7",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "PasswordComplexity",
+                        "ValueString": "1",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "PasswordHistorySize",
+                        "ValueString": "24",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "LockoutBadCount",
+                        "ValueString": "0",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": [
+                        {
+                            "FindingReason": "Non-default lockout count value.",
+                            "FindingDetail": "Accounts lock out after 0 bad passwords",
+                            "Triage": "Green",
+                            "PathFindings": [],
+                            "AclResult": []
+                        }
+                    ]
+                },
+                {
+                    "Setting": {
+                        "SettingName": "RequireLogonToChangePassword",
+                        "ValueString": "0",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": [
+                        {
+                            "FindingReason": "Expired passwords require admin intervention to reset.",
+                            "FindingDetail": "",
+                            "Triage": "Green",
+                            "PathFindings": [],
+                            "AclResult": []
+                        }
+                    ]
+                },
+                {
+                    "Setting": {
+                        "SettingName": "ForceLogoffWhenHourExpire",
+                        "ValueString": "0",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "ClearTextPassword",
+                        "ValueString": "0",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "SettingName": "LSAAnonymousNameLookup",
+                        "ValueString": "0",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": [
+                        {
+                            "FindingReason": "Anonymous users can query the local LSA policy.",
+                            "FindingDetail": "",
+                            "Triage": "Green",
+                            "PathFindings": [],
+                            "AclResult": []
+                        }
+                    ]
+                },
+                {
+                    "Setting": {
+                        "Key": "MaxTicketAge",
+                        "Value": "10",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Key": "MaxRenewAge",
+                        "Value": "7",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Key": "MaxServiceAge",
+                        "Value": "600",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Key": "MaxClockSkew",
+                        "Value": "5",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": [
+                        {
+                            "FindingReason": "Non-default maximum Kerberos clock skew setting. 5",
+                            "FindingDetail": "Dunno, bit interesting.",
+                            "Triage": "Green",
+                            "PathFindings": [],
+                            "AclResult": []
+                        }
+                    ]
+                },
+                {
+                    "Setting": {
+                        "Key": "TicketValidateClient",
+                        "Value": "1",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "System\\CurrentControlSet\\Control\\Lsa",
+                        "Values": [
+                            {
+                                "ValueName": "NoLMHash",
+                                "RegKeyValType": "REG_DWORD",
+                                "ValueBytes": "MQA=",
+                                "ValueString": "1"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\SystemCertificates\\EFS",
+                        "Values": [
+                            {
+                                "ValueName": "EFSBlob",
+                                "RegKeyValType": "REG_BINARY",
+                                "ValueBytes": "AQABAAEAAADCAwAAvgMAABwAAAACAAAAhgMAADgAAAAAAAAAAAAAAAEFAAAAAAAFFQAAAAFKMbW+lSIdXWpGevQBAAAwggOCMIICaqADAgECAhArUttRD9ZihEsUO/fVvDMPMA0GCSqGSIb3DQEBBQUAMFAxFjAUBgNVBAMTDUFkbWluaXN0cmF0b3IxDDAKBgNVBAcTA0VGUzEoMCYGA1UECxMfRUZTIEZpbGUgRW5jcnlwdGlvbiBDZXJ0aWZpY2F0ZTAgFw0yMzA4MjgyMTU3MTdaGA8yMTIzMDgwNDIxNTcxN1owUDEWMBQGA1UEAxMNQWRtaW5pc3RyYXRvcjEMMAoGA1UEBxMDRUZTMSgwJgYDVQQLEx9FRlMgRmlsZSBFbmNyeXB0aW9uIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzZDJFLvoib2Q8KOJR6AGJwhd6aHxuK9J6PnrEiBH/klAl0gDpDJbIcAt8Bx+4ms5NrK31KeHGv9g5A9EAmhGFR4eMl1lW3Buq00sWaxrBMGptfOCJFN8zVuEW/EgUDt3CQ6hol/rlK8hyBNWqgjm0A3+fKcHKcjVjr3Y+VK7qfUrtB0nlqT9yWNvTXak/g23hXW72htObSytOFuoUW4EQfvkmiz+XNeH/+8jbzVyR5t5wvsKimx4S6yfQDROZD0oorU0QO3ob8PYbsmGlvrp8woVA9rAw1xawwlsMFC3I0eBeYZC8Fke3e6zXOMGMbAmpV/AG2ejXiuUXT6FX9FpfQIDAQABo1YwVDAWBgNVHSUEDzANBgsrBgEEAYI3CgMEATAvBgNVHREEKDAmoCQGCisGAQQBgjcUAgOgFgwUQWRtaW5pc3RyYXRvckBVUlRIMgAwCQYDVR0TBAIwADANBgkqhkiG9w0BAQUFAAOCAQEAGViSx405Con8wl4H5v/4jqHUBMSawxmpCad46yDG7SGHwIIFvWODeSL5H0mfj/1jJPHZD04N5EGfRYsuuAEzJmQWmUsPNQLSWDcYnTIMg2JyBLmP5ycUGn2jEyHYsTXjWWxXozOP7nKPvSwU/JKw7upP4Wf1s1QckAenosIRT2sBYREvWwkiRFriPsZc+dghAssWhrmVjEvt47hDcgadItoDXOTEsbmumSvsLKUEKCXy7pkl6y0nOrhD5orfdGnp7rxaRLPj0kobF6t1SjZhxp6Ik8wzZ+Bwy4bMbJJSIqnPIFJ52iVmG4zBQXNxZJDgoCs5aZZpSlL9rJSpsfYKhg==",
+                                "ValueString": "\u0001\u0001\u0001\u0000\u03c2\u0000\u03be\u0000\u001c\u0000\u0002\u0000\u0386\u00008\u0000\u0000\u0000\u0000\u0000\u0501\u0000\u0000\u0500\u0015\u0000\u4a01\ub531\u95be\u1d22\u6a5d\u7a46\u01f4\u0000\u8230\u8203\u8230\u6a02\u03a0\u0102\u0202\u2b10\ufffd\u0f51\u62d6\u4b84\u3b14\ud5f7\u33bc\u300f\u060d\u2a09\u4886\uf786\u010d\u0501\u0005\u5030\u1631\u1430\u0306\u0455\u1303\u410d\u6d64\u6e69\u7369\u7274\u7461\u726f\u0c31\u0a30\u0306\u0455\u1307\u4503\u5346\u2831\u2630\u0306\u0455\u130b\u451f\u5346\u4620\u6c69\u2065\u6e45\u7263\u7079\u6974\u6e6f\u4320\u7265\u6974\u6966\u6163\u6574\u2030\u0d17\u3332\u3830\u3832\u3132\u3735\u3731\u185a\u320f\u3231\u3033\u3038\u3234\u3531\u3137\u5a37\u5030\u1631\u1430\u0306\u0455\u1303\u410d\u6d64\u6e69\u7369\u7274\u7461\u726f\u0c31\u0a30\u0306\u0455\u1307\u4503\u5346\u2831\u2630\u0306\u0455\u130b\u451f\u5346\u4620\u6c69\u2065\u6e45\u7263\u7079\u6974\u6e6f\u4320\u7265\u6974\u6966\u6163\u6574\u8230\u2201\u0d30\u0906\u862a\u8648\u0df7\u0101\u0501\u0300\u0182\u000f\u8230\u0a01\u8202\u0101\ucd00\uc990\ubb14\u89e8\u90bd\ua3f0\u4789\u06a0\u0827\ue95d\uf1a1\uafb8\ue849\uebf9\u2012\ufe47\u4049\u4897\ua403\u5b32\uc021\uf02d\u7e1c\u6be2\u3639\ub7b2\ua7d4\u1a87\u60ff\u0fe4\u0244\u4668\u1e15\u321e\u655d\u705b\uab6e\u2c4d\uac59\u046b\ua9c1\uf3b5\u2482\u7c53\u5bcd\u5b84\u20f1\u3b50\u0977\ua10e\u5fa2\u94eb\u21af\u13c8\uaa56\ue608\u0dd0\u7cfe\u07a7\uc829\u8ed5\ufffd\u52f9\ua9bb\u2bf5\u1db4\u9627\ufda4\u63c9\u4d6f\ua476\u0dfe\u85b7\ubb75\u1bda\u6d4e\uad2c\u5b38\u51a8\u046e\ufb41\u9ae4\ufe2c\ud75c\uff87\u23ef\u356f\u4772\u799b\ufbc2\u8a0a\u786c\uac4b\u409f\u4e34\u3d64\ua228\u34b5\ued40\u6fe8\ufffd\uc96e\u9686\ue9fa\u0af3\u0315\uc0da\u5cc3\uc35a\u6c09\u5030\u23b7\u8147\u8679\uf042\u1e59\ueedd\u5cb3\u06e3\ub031\ua526\uc05f\u671b\u5ea3\u942b\u3e5d\u5f85\u69d1\u027d\u0103\u0100\u56a3\u5430\u1630\u0306\u1d55\u0425\u300f\u060d\u2b0b\u0106\u0104\u3782\u030a\u0104\u2f30\u0306\u1d55\u0411\u3028\ua026\u0624\u2b0a\u0106\u0104\u3782\u0214\ua003\u0c16\u4114\u6d64\u6e69\u7369\u7274\u7461\u726f\u5540\u5452\u3248\u3000\u0609\u5503\u131d\u02040\u0d30\u0906\u862a\u8648\u0df7\u0101\u0505\u0300\u0182\u0001\u5819\uc792\u398d\u890a\uc2fc\u075e\uffe6\u8ef8\ud4a1\uc404\uc39a\ua919\ua709\ueb78\uc620\u21ed\uc087\u0582\u63bd\u7983\uf922\u491f\u8f9f\u63fd\uf124\u0fd9\u0d4e\u41e4\u459f\u2e8b\u01b8\u2633\u1664\u4b99\u350f\ud202\u3758\u9d18\u0c32\u6283\u0472\u8fb9\u27e7\u1a14\ua37d\u2113\ub1d8\ue335\u6c59\ua357\u8f33\u72ee\ubd8f\u142c\u92fc\ueeb0\u4fea\u67e1\ub3f5\u1c54\u0790\ua2a7\u11c2\u6b4f\u6101\u2f11\u095b\u4422\ue25a\uc63e\uf95c\u21d8\ucb02\u8616\u95b9\u4b8c\ue3ed\u43b8\u0672\u229d\u03da\ue45c\ub1c4\uaeb9\u2b99\u2cec\u04a5\u2528\ueef2\u2599\u2deb\u3a27\u43b8\u8ae6\u74df\ue969\ubcee\u445a\ue3b3\u4ad2\u171b\u75ab\u364a\uc661\u889e\ucc93\u6733\u70e0\u86cb\u6ccc\u5292\ua922\u20cf\u7952\u25da\u1b66\uc18c\u7341\u6471\ue090\u2ba0\u6939\u6996\u524a\uacfd\ua994\uf6b1\u860a"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\SystemCertificates\\EFS\\Certificates\\71BCCA97629887E52A4507795AB1B82BB511303D",
+                        "Values": [
+                            {
+                                "ValueName": "Blob",
+                                "RegKeyValType": "REG_BINARY",
+                                "ValueBytes": "AgAAAAEAAADMAAAAHAAAAGwAAAABAAAAAAAAAAAAAAAAAAAAAQAAAGIANgA2ADkANQBjADYAYQAtAGUAZgA5ADYALQA0ADUAOAAxAC0AYgA1AGQAMwAtAGQAZAA5ADcAOABjADYAMABkADUAMQAwAAAAAAAAAAAATQBpAGMAcgBvAHMAbwBmAHQAIABFAG4AaABhAG4AYwBlAGQAIABDAHIAeQBwAHQAbwBnAHIAYQBwAGgAaQBjACAAUAByAG8AdgBpAGQAZQByACAAdgAxAC4AMAAAAAAAAwAAAAEAAAAUAAAAcbzKl2KYh+UqRQd5WrG4K7URMD0gAAAAAQAAAIYDAAAwggOCMIICaqADAgECAhArUttRD9ZihEsUO/fVvDMPMA0GCSqGSIb3DQEBBQUAMFAxFjAUBgNVBAMTDUFkbWluaXN0cmF0b3IxDDAKBgNVBAcTA0VGUzEoMCYGA1UECxMfRUZTIEZpbGUgRW5jcnlwdGlvbiBDZXJ0aWZpY2F0ZTAgFw0yMzA4MjgyMTU3MTdaGA8yMTIzMDgwNDIxNTcxN1owUDEWMBQGA1UEAxMNQWRtaW5pc3RyYXRvcjEMMAoGA1UEBxMDRUZTMSgwJgYDVQQLEx9FRlMgRmlsZSBFbmNyeXB0aW9uIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzZDJFLvoib2Q8KOJR6AGJwhd6aHxuK9J6PnrEiBH/klAl0gDpDJbIcAt8Bx+4ms5NrK31KeHGv9g5A9EAmhGFR4eMl1lW3Buq00sWaxrBMGptfOCJFN8zVuEW/EgUDt3CQ6hol/rlK8hyBNWqgjm0A3+fKcHKcjVjr3Y+VK7qfUrtB0nlqT9yWNvTXak/g23hXW72htObSytOFuoUW4EQfvkmiz+XNeH/+8jbzVyR5t5wvsKimx4S6yfQDROZD0oorU0QO3ob8PYbsmGlvrp8woVA9rAw1xawwlsMFC3I0eBeYZC8Fke3e6zXOMGMbAmpV/AG2ejXiuUXT6FX9FpfQIDAQABo1YwVDAWBgNVHSUEDzANBgsrBgEEAYI3CgMEATAvBgNVHREEKDAmoCQGCisGAQQBgjcUAgOgFgwUQWRtaW5pc3RyYXRvckBVUlRIMgAwCQYDVR0TBAIwADANBgkqhkiG9w0BAQUFAAOCAQEAGViSx405Con8wl4H5v/4jqHUBMSawxmpCad46yDG7SGHwIIFvWODeSL5H0mfj/1jJPHZD04N5EGfRYsuuAEzJmQWmUsPNQLSWDcYnTIMg2JyBLmP5ycUGn2jEyHYsTXjWWxXozOP7nKPvSwU/JKw7upP4Wf1s1QckAenosIRT2sBYREvWwkiRFriPsZc+dghAssWhrmVjEvt47hDcgadItoDXOTEsbmumSvsLKUEKCXy7pkl6y0nOrhD5orfdGnp7rxaRLPj0kobF6t1SjZhxp6Ik8wzZ+Bwy4bMbJJSIqnPIFJ52iVmG4zBQXNxZJDgoCs5aZZpSlL9rJSpsfYKhg==",
+                                "ValueString": "\u0002\u0000\u0001\u0000\u00cc\u0000\u001c\u0000l\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000b6695c6a-ef96-4581-b5d3-dd978c60d510\u0000\u0000\u0000\u0000Microsoft Enhanced Cryptographic Provider v1.0\u0000\u0000\u0003\u0000\u0001\u0000\u0014\u0000\ubc71\u97ca\u9862\ue587\u452a\u7907\ub15a\u2bb8\u11b5\u3d30 \u0000\u0001\u0000\u0386\u0000\u8230\u8203\u8230\u6a02\u03a0\u0102\u0202\u2b10\ufffd\u0f51\u62d6\u4b84\u3b14\ud5f7\u33bc\u300f\u060d\u2a09\u4886\uf786\u010d\u0501\u0005\u5030\u1631\u1430\u0306\u0455\u1303\u410d\u6d64\u6e69\u7369\u7274\u7461\u726f\u0c31\u0a30\u0306\u0455\u1307\u4503\u5346\u2831\u2630\u0306\u0455\u130b\u451f\u5346\u4620\u6c69\u2065\u6e45\u7263\u7079\u6974\u6e6f\u4320\u7265\u6974\u6966\u6163\u6574\u2030\u0d17\u3332\u3830\u3832\u3132\u3735\u3731\u185a\u320f\u3231\u3033\u3038\u3234\u3531\u3137\u5a37\u5030\u1631\u1430\u0306\u0455\u1303\u410d\u6d64\u6e69\u7369\u7274\u7461\u726f\u0c31\u0a30\u0306\u0455\u1307\u4503\u5346\u2831\u2630\u0306\u0455\u130b\u451f\u5346\u4620\u6c69\u2065\u6e45\u7263\u7079\u6974\u6e6f\u4320\u7265\u6974\u6966\u6163\u6574\u8230\u2201\u0d30\u0906\u862a\u8648\u0df7\u0101\u0501\u0300\u0182\u000f\u8230\u0a01\u8202\u0101\ucd00\uc990\ubb14\u89e8\u90bd\ua3f0\u4789\u06a0\u0827\ue95d\uf1a1\uafb8\ue849\uebf9\u2012\ufe47\u4049\u4897\ua403\u5b32\uc021\uf02d\u7e1c\u6be2\u3639\ub7b2\ua7d4\u1a87\u60ff\u0fe4\u0244\u4668\u1e15\u321e\u655d\u705b\uab6e\u2c4d\uac59\u046b\ua9c1\uf3b5\u2482\u7c53\u5bcd\u5b84\u20f1\u3b50\u0977\ua10e\u5fa2\u94eb\u21af\u13c8\uaa56\ue608\u0dd0\u7cfe\u07a7\uc829\u8ed5\ufffd\u52f9\ua9bb\u2bf5\u1db4\u9627\ufda4\u63c9\u4d6f\ua476\u0dfe\u85b7\ubb75\u1bda\u6d4e\uad2c\u5b38\u51a8\u046e\ufb41\u9ae4\ufe2c\ud75c\uff87\u23ef\u356f\u4772\u799b\ufbc2\u8a0a\u786c\uac4b\u409f\u4e34\u3d64\ua228\u34b5\ued40\u6fe8\ufffd\uc96e\u9686\ue9fa\u0af3\u0315\uc0da\u5cc3\uc35a\u6c09\u5030\u23b7\u8147\u8679\uf042\u1e59\ueedd\u5cb3\u06e3\ub031\ua526\uc05f\u671b\u5ea3\u942b\u3e5d\u5f85\u69d1\u027d\u0103\u0100\u56a3\u5430\u1630\u0306\u1d55\u0425\u300f\u060d\u2b0b\u0106\u0104\u3782\u030a\u0104\u2f30\u0306\u1d55\u0411\u3028\ua026\u0624\u2b0a\u0106\u0104\u3782\u0214\ua003\u0c16\u4114\u6d64\u6e69\u7369\u7274\u7461\u726f\u5540\u5452\u3248\u3000\u0609\u5503\u131d\u02040\u0d30\u0906\u862a\u8648\u0df7\u0101\u0505\u0300\u0182\u0001\u5819\uc792\u398d\u890a\uc2fc\u075e\uffe6\u8ef8\ud4a1\uc404\uc39a\ua919\ua709\ueb78\uc620\u21ed\uc087\u0582\u63bd\u7983\uf922\u491f\u8f9f\u63fd\uf124\u0fd9\u0d4e\u41e4\u459f\u2e8b\u01b8\u2633\u1664\u4b99\u350f\ud202\u3758\u9d18\u0c32\u6283\u0472\u8fb9\u27e7\u1a14\ua37d\u2113\ub1d8\ue335\u6c59\ua357\u8f33\u72ee\ubd8f\u142c\u92fc\ueeb0\u4fea\u67e1\ub3f5\u1c54\u0790\ua2a7\u11c2\u6b4f\u6101\u2f11\u095b\u4422\ue25a\uc63e\uf95c\u21d8\ucb02\u8616\u95b9\u4b8c\ue3ed\u43b8\u0672\u229d\u03da\ue45c\ub1c4\uaeb9\u2b99\u2cec\u04a5\u2528\ueef2\u2599\u2deb\u3a27\u43b8\u8ae6\u74df\ue969\ubcee\u445a\ue3b3\u4ad2\u171b\u75ab\u364a\uc661\u889e\ucc93\u6733\u70e0\u86cb\u6ccc\u5292\ua922\u20cf\u7952\u25da\u1b66\uc18c\u7341\u6471\ue090\u2ba0\u6939\u6996\u524a\uacfd\ua994\uf6b1\u860a"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\SystemCertificates\\EFS\\CRLs",
+                        "Values": [
+                            {
+                                "ValueName": "",
+                                "RegKeyValType": "REG_NONE",
+                                "ValueBytes": "",
+                                "ValueString": ""
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\SystemCertificates\\EFS\\CTLs",
+                        "Values": [
+                            {
+                                "ValueName": "",
+                                "RegKeyValType": "REG_NONE",
+                                "ValueBytes": "",
+                                "ValueString": ""
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{31B2F340-016D-11D2-945F-00C04FB984F9}\\MACHINE\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                }
+            ]
+        },
+        "gpLinks": [
+            {
+                "domain": "URTH2.LOCAL.COM",
+                "name": "URTH2.LOCAL.COM",
+                "distinguishedname": "DC=URTH2,DC=LOCAL,DC=COM",
+                "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+                "highvalue": true,
+                "description": null,
+                "whencreated": 1693234423,
+                "functionallevel": "2016"
+            }
+        ]
+    },
+    {
+        "Properties": {
+            "domain": "URTH2.LOCAL.COM",
+            "name": "DEMO GPO2@URTH2.LOCAL.COM",
+            "distinguishedname": "CN={3612F729-4CE0-4F11-B0CE-D1D0991AFB73},CN=POLICIES,CN=SYSTEM,DC=URTH2,DC=LOCAL,DC=COM",
+            "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+            "highvalue": false,
+            "description": null,
+            "whencreated": 1693235597,
+            "gpcpath": "\\\\URTH2.LOCAL.COM\\SYSVOL\\URTH2.LOCAL.COM\\POLICIES\\{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}"
+        },
+        "Aces": [
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "Owns",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            }
+        ],
+        "ObjectIdentifier": "91CA7C9E-3F00-4F36-BA53-122C83E8B411",
+        "IsDeleted": false,
+        "IsACLProtected": true,
+        "PolicyData": {
+            "Attributes": {
+                "IsMorphedGPO": false,
+                "GpoLinks": [
+                    {
+                        "LinkPath": "DC=URTH2,DC=local,DC=com",
+                        "LinkEnforced": "Enabled, Unenforced"
+                    }
+                ],
+                "DisplayName": "Demo GPO2",
+                "CreatedDate": "2023-08-28T15:13:17-07:00",
+                "ModifiedDate": "2023-09-05T15:48:42-07:00",
+                "NtSecurityDescriptorSddl": {
+                    "Raw": "O:DAD:PAI(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CI;LCRPLORC;;;ED)(A;CI;LCRPLORC;;;AU)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)",
+                    "Owner": {
+                        "Raw": "DA",
+                        "Alias": "Domain Admins",
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "Dacl": {
+                        "Raw": "PAI(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CI;LCRPLORC;;;ED)(A;CI;LCRPLORC;;;AU)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)",
+                        "Flags": [
+                            "PROTECTED",
+                            "AUTO_INHERITED"
+                        ],
+                        "Aces": [
+                            {
+                                "Raw": "OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU",
+                                "AceType": "OBJECT_ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CONTROL_ACCESS"
+                                ],
+                                "ObjectGuid": "edacfd8f-ffb3-11d1-b41d-00a0c968f939",
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                    "Alias": "Enterprise Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;ED",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "ED",
+                                    "Alias": "Enterprise Domain Controllers",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;AU",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "SY",
+                                    "Alias": "Local System",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "CO",
+                                    "Alias": "Creator Owner",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            }
+                        ],
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "IsValid": true,
+                    "Errors": []
+                },
+                "DistinguishedName": "CN={3612F729-4CE0-4F11-B0CE-D1D0991AFB73},CN=Policies,CN=System,DC=URTH2,DC=local,DC=com",
+                "PathInSysvol": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}",
+                "Uid": "{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}",
+                "VersionNumber": "137",
+                "ComputerPolicyEnabled": true,
+                "UserPolicyEnabled": true
+            },
+            "GpoAclResult": [],
+            "GpoAttributeFindings": [
+                {
+                    "FindingReason": "Found some interesting ACLs on this GPO. Might wanna check 'em out.",
+                    "FindingDetail": "IDK just look at it jeez.",
+                    "Triage": "Black",
+                    "PathFindings": [],
+                    "AclResult": [
+                        {
+                            "Trustee": {
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "Owner"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CONTROL_ACCESS"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                "DisplayName": "Enterprise Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "ED",
+                                "DisplayName": "Enterprise Domain Controllers"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "SY",
+                                "DisplayName": "Local System"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "CO",
+                                "DisplayName": "Creator Owner"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "SettingResults": [
+                {
+                    "Setting": {
+                        "Name": "Webclient",
+                        "ServiceName": "Webclient",
+                        "Timeout": "30",
+                        "StartupType": "MANUAL",
+                        "ServiceAction": "STOP",
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}\\Machine\\Preferences\\Services\\Services.xml",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\Windows\\NetworkProvider\\HardenedPaths",
+                        "Values": [
+                            {
+                                "ValueName": "\\\\DC02",
+                                "RegKeyValType": "REG_SZ",
+                                "ValueBytes": "UgBlAHEAdQBpAHIAZQBJAG4AdABlAGcAcgBpAHQAeQA9ADEAAAA=",
+                                "ValueString": "RequireIntegrity=1 "
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}\\Machine\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "Policies\\Microsoft\\Windows NT\\DNSClient\\DnsPolicyConfig",
+                        "Values": [
+                            {
+                                "ValueName": "",
+                                "RegKeyValType": "REG_NONE",
+                                "ValueBytes": "",
+                                "ValueString": ""
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{3612F729-4CE0-4F11-B0CE-D1D0991AFB73}\\Machine\\Registry.pol",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                }
+            ]
+        },
+        "gpLinks": [
+            {
+                "domain": "URTH2.LOCAL.COM",
+                "name": "URTH2.LOCAL.COM",
+                "distinguishedname": "DC=URTH2,DC=LOCAL,DC=COM",
+                "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+                "highvalue": true,
+                "description": null,
+                "whencreated": 1693234423,
+                "functionallevel": "2016"
+            }
+        ]
+    },
+    {
+        "Properties": {
+            "domain": "URTH2.LOCAL.COM",
+            "name": "DEFAULT DOMAIN CONTROLLERS POLICY@URTH2.LOCAL.COM",
+            "distinguishedname": "CN={6AC1786C-016F-11D2-945F-00C04FB984F9},CN=POLICIES,CN=SYSTEM,DC=URTH2,DC=LOCAL,DC=COM",
+            "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+            "highvalue": false,
+            "description": null,
+            "whencreated": 1693234429,
+            "gpcpath": "\\\\URTH2.LOCAL.COM\\SYSVOL\\URTH2.LOCAL.COM\\POLICIES\\{6AC1786C-016F-11D2-945F-00C04FB984F9}"
+        },
+        "Aces": [
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "Owns",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-512",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteDacl",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "WriteOwner",
+                "IsInherited": false
+            },
+            {
+                "PrincipalSID": "S-1-5-21-3039906305-488805822-2051435101-519",
+                "PrincipalType": "Group",
+                "RightName": "GenericWrite",
+                "IsInherited": false
+            }
+        ],
+        "ObjectIdentifier": "B15E3B0B-E879-4D8A-9A68-EB19D9C124E1",
+        "IsDeleted": false,
+        "IsACLProtected": true,
+        "PolicyData": {
+            "Attributes": {
+                "IsMorphedGPO": false,
+                "GpoLinks": [
+                    {
+                        "LinkPath": "OU=Domain Controllers,DC=URTH2,DC=local,DC=com",
+                        "LinkEnforced": "Enabled, Unenforced"
+                    }
+                ],
+                "DisplayName": "Default Domain Controllers Policy",
+                "CreatedDate": "2023-08-28T14:53:49-07:00",
+                "ModifiedDate": "2023-08-28T14:53:49-07:00",
+                "NtSecurityDescriptorSddl": {
+                    "Raw": "O:DAD:PAI(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CI;LCRPLORC;;;AU)(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;CI;LCRPLORC;;;ED)",
+                    "Owner": {
+                        "Raw": "DA",
+                        "Alias": "Domain Admins",
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "Dacl": {
+                        "Raw": "PAI(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA)(A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519)(A;;CCLCSWRPWPLORCWDWO;;;DA)(A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO)(A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY)(A;CI;LCRPLORC;;;AU)(OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU)(A;CI;LCRPLORC;;;ED)",
+                        "Flags": [
+                            "PROTECTED",
+                            "AUTO_INHERITED"
+                        ],
+                        "Aces": [
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                    "Alias": "Enterprise Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;S-1-5-21-3039906305-488805822-2051435101-519",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                    "Alias": "Enterprise Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;;CCLCSWRPWPLORCWDWO;;;DA",
+                                "AceType": "ACCESS_ALLOWED",
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "DA",
+                                    "Alias": "Domain Admins",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CIIO;CCDCLCSWRPWPDTLOSDRCWDWO;;;CO",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT",
+                                    "INHERIT_ONLY"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "CO",
+                                    "Alias": "Creator Owner",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;CCDCLCSWRPWPDTLOSDRCWDWO;;;SY",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CREATE_CHILD",
+                                    "DELETE_CHILD",
+                                    "LIST_CHILDREN",
+                                    "SELF_WRITE",
+                                    "READ_PROPERTY",
+                                    "WRITE_PROPERTY",
+                                    "DELETE_TREE",
+                                    "LIST_OBJECT",
+                                    "STANDARD_DELETE",
+                                    "READ_CONTROL",
+                                    "WRITE_DAC",
+                                    "WRITE_OWNER"
+                                ],
+                                "AceSid": {
+                                    "Raw": "SY",
+                                    "Alias": "Local System",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;AU",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "OA;CI;CR;edacfd8f-ffb3-11d1-b41d-00a0c968f939;;AU",
+                                "AceType": "OBJECT_ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "CONTROL_ACCESS"
+                                ],
+                                "ObjectGuid": "edacfd8f-ffb3-11d1-b41d-00a0c968f939",
+                                "AceSid": {
+                                    "Raw": "AU",
+                                    "Alias": "Authenticated Users",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            },
+                            {
+                                "Raw": "A;CI;LCRPLORC;;;ED",
+                                "AceType": "ACCESS_ALLOWED",
+                                "AceFlags": [
+                                    "CONTAINER_INHERIT"
+                                ],
+                                "Rights": [
+                                    "LIST_CHILDREN",
+                                    "READ_PROPERTY",
+                                    "LIST_OBJECT",
+                                    "READ_CONTROL"
+                                ],
+                                "AceSid": {
+                                    "Raw": "ED",
+                                    "Alias": "Enterprise Domain Controllers",
+                                    "IsValid": true,
+                                    "Errors": []
+                                },
+                                "IsValid": true,
+                                "Errors": []
+                            }
+                        ],
+                        "IsValid": true,
+                        "Errors": []
+                    },
+                    "IsValid": true,
+                    "Errors": []
+                },
+                "DistinguishedName": "CN={6AC1786C-016F-11D2-945F-00C04fB984F9},CN=Policies,CN=System,DC=URTH2,DC=local,DC=com",
+                "PathInSysvol": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}",
+                "Uid": "{6AC1786C-016F-11D2-945F-00C04fB984F9}",
+                "VersionNumber": "1",
+                "ComputerPolicyEnabled": true,
+                "UserPolicyEnabled": true
+            },
+            "GpoAclResult": [],
+            "GpoAttributeFindings": [
+                {
+                    "FindingReason": "Found some interesting ACLs on this GPO. Might wanna check 'em out.",
+                    "FindingDetail": "IDK just look at it jeez.",
+                    "Triage": "Black",
+                    "PathFindings": [],
+                    "AclResult": [
+                        {
+                            "Trustee": {
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "Owner"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                "DisplayName": "Enterprise Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "S-1-5-21-3039906305-488805822-2051435101-519",
+                                "DisplayName": "Enterprise Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "DA",
+                                "DisplayName": "Domain Admins"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "CO",
+                                "DisplayName": "Creator Owner"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "SY",
+                                "DisplayName": "Local System"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CREATE_CHILD",
+                                "DELETE_CHILD",
+                                "LIST_CHILDREN",
+                                "SELF_WRITE",
+                                "READ_PROPERTY",
+                                "WRITE_PROPERTY",
+                                "DELETE_TREE",
+                                "LIST_OBJECT",
+                                "STANDARD_DELETE",
+                                "READ_CONTROL",
+                                "WRITE_DAC",
+                                "WRITE_OWNER"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "AU",
+                                "DisplayName": "Authenticated Users"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "CONTROL_ACCESS"
+                            ]
+                        },
+                        {
+                            "Trustee": {
+                                "Sid": "ED",
+                                "DisplayName": "Enterprise Domain Controllers"
+                            },
+                            "ACEType": "Allow",
+                            "Rights": [
+                                "LIST_CHILDREN",
+                                "READ_PROPERTY",
+                                "LIST_OBJECT",
+                                "READ_CONTROL"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "SettingResults": [
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "System\\CurrentControlSet\\Services\\NTDS\\Parameters",
+                        "Values": [
+                            {
+                                "ValueName": "LDAPServerIntegrity",
+                                "RegKeyValType": "REG_DWORD",
+                                "ValueBytes": "MQA=",
+                                "ValueString": "1"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "System\\CurrentControlSet\\Services\\Netlogon\\Parameters",
+                        "Values": [
+                            {
+                                "ValueName": "RequireSignOrSeal",
+                                "RegKeyValType": "REG_DWORD",
+                                "ValueBytes": "MQA=",
+                                "ValueString": "1"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "System\\CurrentControlSet\\Services\\LanManServer\\Parameters",
+                        "Values": [
+                            {
+                                "ValueName": "RequireSecuritySignature",
+                                "RegKeyValType": "REG_DWORD",
+                                "ValueBytes": "MQA=",
+                                "ValueString": "1"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Action": "Update",
+                        "Changed": "0001-01-01T00:00:00",
+                        "Hive": "HKEY_LOCAL_MACHINE",
+                        "Key": "System\\CurrentControlSet\\Services\\LanManServer\\Parameters",
+                        "Values": [
+                            {
+                                "ValueName": "EnableSecuritySignature",
+                                "RegKeyValType": "REG_DWORD",
+                                "ValueBytes": "MQA=",
+                                "ValueString": "1"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeAssignPrimaryTokenPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-20",
+                                "DisplayName": "NT AUTHORITY\\NETWORK SERVICE"
+                            },
+                            {
+                                "Sid": "S-1-5-19",
+                                "DisplayName": "NT AUTHORITY\\LOCAL SERVICE"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": [
+                        {
+                            "FindingReason": "User/group assigned an interesting OS privilege. ",
+                            "FindingDetail": "SeAssignPrimaryTokenPrivilege was assigned to NT AUTHORITY\\LOCAL SERVICE - S-1-5-19",
+                            "Triage": "Green",
+                            "PathFindings": [],
+                            "AclResult": []
+                        }
+                    ]
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeAuditPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-20",
+                                "DisplayName": "NT AUTHORITY\\NETWORK SERVICE"
+                            },
+                            {
+                                "Sid": "S-1-5-19",
+                                "DisplayName": "NT AUTHORITY\\LOCAL SERVICE"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeBackupPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-551",
+                                "DisplayName": "BUILTIN\\Backup Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeBatchLogonRight",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-559",
+                                "DisplayName": "BUILTIN\\Performance Log Users"
+                            },
+                            {
+                                "Sid": "S-1-5-32-551",
+                                "DisplayName": "BUILTIN\\Backup Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeChangeNotifyPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-554",
+                                "DisplayName": "BUILTIN\\Pre-Windows 2000 Compatible Access"
+                            },
+                            {
+                                "Sid": "S-1-5-11",
+                                "DisplayName": "NT AUTHORITY\\Authenticated Users"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            },
+                            {
+                                "Sid": "S-1-5-20",
+                                "DisplayName": "NT AUTHORITY\\NETWORK SERVICE"
+                            },
+                            {
+                                "Sid": "S-1-5-19",
+                                "DisplayName": "NT AUTHORITY\\LOCAL SERVICE"
+                            },
+                            {
+                                "Sid": "S-1-1-0",
+                                "DisplayName": "Everyone"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeCreatePagefilePrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeDebugPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeIncreaseBasePriorityPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-90-0",
+                                "DisplayName": "Window Manager\\Window Manager Group"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeIncreaseQuotaPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            },
+                            {
+                                "Sid": "S-1-5-20",
+                                "DisplayName": "NT AUTHORITY\\NETWORK SERVICE"
+                            },
+                            {
+                                "Sid": "S-1-5-19",
+                                "DisplayName": "NT AUTHORITY\\LOCAL SERVICE"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeInteractiveLogonRight",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-9",
+                                "DisplayName": "NT AUTHORITY\\ENTERPRISE DOMAIN CONTROLLERS"
+                            },
+                            {
+                                "Sid": "S-1-5-32-550",
+                                "DisplayName": "Print Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-548",
+                                "DisplayName": "Account Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-551",
+                                "DisplayName": "BUILTIN\\Backup Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeLoadDriverPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-550",
+                                "DisplayName": "Print Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeMachineAccountPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-11",
+                                "DisplayName": "NT AUTHORITY\\Authenticated Users"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeNetworkLogonRight",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-554",
+                                "DisplayName": "BUILTIN\\Pre-Windows 2000 Compatible Access"
+                            },
+                            {
+                                "Sid": "S-1-5-9",
+                                "DisplayName": "NT AUTHORITY\\ENTERPRISE DOMAIN CONTROLLERS"
+                            },
+                            {
+                                "Sid": "S-1-5-11",
+                                "DisplayName": "NT AUTHORITY\\Authenticated Users"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            },
+                            {
+                                "Sid": "S-1-1-0",
+                                "DisplayName": "Everyone"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeProfileSingleProcessPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeRemoteShutdownPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeRestorePrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-551",
+                                "DisplayName": "BUILTIN\\Backup Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeSecurityPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeShutdownPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-550",
+                                "DisplayName": "Print Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-551",
+                                "DisplayName": "BUILTIN\\Backup Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeSystemEnvironmentPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeSystemProfilePrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420",
+                                "DisplayName": "NT SERVICE\\WdiServiceHost"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeSystemTimePrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-549",
+                                "DisplayName": "Server Operators"
+                            },
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            },
+                            {
+                                "Sid": "S-1-5-19",
+                                "DisplayName": "NT AUTHORITY\\LOCAL SERVICE"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeTakeOwnershipPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeUndockPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                },
+                {
+                    "Setting": {
+                        "Privilege": "SeEnableDelegationPrivilege",
+                        "TrusteeSids": [],
+                        "Trustees": [
+                            {
+                                "Sid": "S-1-5-32-544",
+                                "DisplayName": "BUILTIN\\Administrators"
+                            }
+                        ],
+                        "Source": "\\\\urth2.local.com\\sysvol\\urth2.local.com\\Policies\\{6AC1786C-016F-11D2-945F-00C04fB984F9}\\MACHINE\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf",
+                        "PolicyType": "Computer",
+                        "IsMorphed": false
+                    },
+                    "Findings": []
+                }
+            ]
+        },
+        "gpLinks": [
+            {
+                "domain": "URTH2.LOCAL.COM",
+                "name": "DOMAIN CONTROLLERS@URTH2.LOCAL.COM",
+                "distinguishedname": "OU=DOMAIN CONTROLLERS,DC=URTH2,DC=LOCAL,DC=COM",
+                "domainsid": "S-1-5-21-3039906305-488805822-2051435101",
+                "highvalue": false,
+                "description": "Default container for domain controllers",
+                "whencreated": 1693234429,
+                "blocksinheritance": false
+            }
+        ]
+    }
+]
