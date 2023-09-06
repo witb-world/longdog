@@ -12,8 +12,9 @@ sharphound_base_path = ''
 @click.option('--findings-output', default='results', help='Output directory name', type=str)
 @click.option('--recurse-links', help='Recursively resolve AD relatioinships for Group policy links. May degrade performance.', type=bool, default=False)
 @click.option('--diff-mode', help='Produce a JSON diff of an unsecured baseline with the Group3r result provided. Useful for debugging new findings.', type=bool, default=False)
+@click.option('--domain', help='Domain name being assessed (required for diff-mode)', type=str, required=False)
 
-def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_links, diff_mode):
+def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_links, diff_mode, domain):
     grouper_path = ''
     if grouper_input:
         grouper_path = grouper_input
@@ -33,11 +34,11 @@ def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_
         json.dump(res, mapped)
 
     if diff_mode:
-        if grouper_path == None:
-            print('Error: must provide Group3r input file when running diff-mode.')
+        if grouper_path == None or domain == None:
+            print('Error: must provide Group3r input file and domain when running diff-mode.')
             exit(1)
         else:
-            print(diff_policies.diff_objs(output))
+            print(diff_policies.diff_objs(output, domain))
             exit(0)
     
     findings = policy_assessor.assess_findings(parser_result_path=output)
