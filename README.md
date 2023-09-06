@@ -27,6 +27,7 @@ Options:
   --diff-mode BOOLEAN      Produce a JSON diff of an unsecured baseline with
                            the Group3r result provided. Useful for debugging
                            new findings.
+  --domain TEXT            Domain name being assessed (required for diff-mode)
   --help                   Show this message and exit.
 ```
 
