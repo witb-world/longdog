@@ -26,7 +26,7 @@ findings_list = []
 discarded_findings =  set()
 
 # TODO: create a class for findings instead of unstructured JSON.
-def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False):
+def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False) -> dict:
     """
     Creates a dictionary representing a finding, along with any gpLinks that the GPO
     responsible for it may be connected to and related GPO metadata.
@@ -72,7 +72,7 @@ def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False):
     logger.debug(f"Finding object contents: {finding_obj}")
     return finding_obj
 
-def make_jq_query(finding_obj: dict, gp_obj: dict, query_type: QueryType):
+def make_jq_query(finding_obj: dict, gp_obj: dict, query_type: QueryType) -> jq._ProgramWithInput:
     """
     Makes a `jq` query from a finding object to a input object.
 
@@ -91,12 +91,12 @@ def make_jq_query(finding_obj: dict, gp_obj: dict, query_type: QueryType):
             logger.warning(f"No settings query found for finding {finding_obj['description']}")
             return
         query_string = finding_obj['query']
-        logger.debug(f"policy setting query: {query_string}")
+        # logger.debug(f"policy setting query: {query_string}")
 
 
     query_compiled = jq.compile(query_string)
     query_result = query_compiled.input(gp_obj)
-    logger.debug(query_result)
+    # logger.debug(query_result)
     logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
     return query_result
         
@@ -120,9 +120,9 @@ def add_gp_settings_to_findings_obj(finding_obj: dict, gp_obj: dict):
                     else:
                         finding_obj['gp_setting'].append(setting_res)
             except ValueError:
-                logger.warning(f"Spent iterator on {finding_obj['description']}")
+                logger.debug(f"Spent iterator on {finding_obj['description']}")
 
-def assess_findings(parser_result_path: str):
+def assess_findings(parser_result_path: str) -> str:
     """
     Iterate over each finding in `../rules/findings`, and return a JSON blob that contains:
         - The finding details from the original finding file,
