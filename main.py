@@ -8,7 +8,7 @@ sharphound_base_path = ''
 @click.command()
 @click.option('--grouper-input', help='Path to Group3r JSONL input', required=False, type=click.Path())
 @click.option('--sharphound-dir', help='Path to directory containing SharpHound .json files', required=True, type=click.Path())
-@click.option('--output', default='longdog-out.json', help='Output file', type=str)
+@click.option('--output', default='longdog-out.json', help='Output file for intermediate results', type=str)
 @click.option('--findings-output', default='results', help='Output directory name', type=str)
 @click.option('--recurse-links', help='Recursively resolve AD relatioinships for Group policy links. May degrade performance.', type=bool, default=False)
 @click.option('--diff-mode', help='Produce a JSON diff of an unsecured baseline with the Group3r result provided. Useful for debugging new findings.', type=bool, default=False)

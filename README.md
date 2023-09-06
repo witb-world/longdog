@@ -20,9 +20,13 @@ Options:
   --grouper-input PATH     Path to Group3r JSONL input
   --sharphound-dir PATH    Path to directory containing SharpHound .json files
                            [required]
-  --output TEXT            Output file
+  --output TEXT            Output file for intermediate results
+  --findings-output TEXT   Output directory name
   --recurse-links BOOLEAN  Recursively resolve AD relatioinships for Group
                            policy links. May degrade performance.
+  --diff-mode BOOLEAN      Produce a JSON diff of an unsecured baseline with
+                           the Group3r result provided. Useful for debugging
+                           new findings.
   --help                   Show this message and exit.
 ```
 
@@ -40,9 +44,9 @@ As noted above, the `--sharphound-dir` flag should be followed by the path to th
 - [x] Add affected OUs and GPO identities to misconfigurations in output object.
     - For large domains, it is recommended to set `--recurse-links` to `off` (default), as the current build of this tool has inefficient processing logic.
     - For now, running `main.py` will print a map of findings and their details to affected linked AD objects to `STDOUT`. The path specified in `--output` contains a map of all Group3r output to affected objects.
-- [ ] Build a comprehensive list of findings
-    - Currently `rules/findings` directory contains just a handful of findings for testing steps listed above.
-- [ ] Create HTML/Bootstrap reporting frontend
+- [x] Build a comprehensive list of findings
+    - Currently `rules/findings` directory contains about 15+ findings. Added `--diff-mode` option to aid in development of more findings.
+- [x] Create HTML/Bootstrap reporting frontend
 
 ### Longterm roadmap
 
