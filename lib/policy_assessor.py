@@ -16,13 +16,8 @@ class QueryType(Enum):
 
 FINDINGS_DIR = 'rules/findings'
 
-# open intermediate output file 
-# 
-# For finding in ../rules/findings
 finding_paths = os.listdir(FINDINGS_DIR)
-
 findings_list = []
-
 discarded_findings =  set()
 
 # TODO: create a class for findings instead of unstructured JSON.
@@ -69,7 +64,7 @@ def build_finding_object(finding_obj: dict, gp_obj:dict, is_neg:bool=False) -> d
     if finding_obj.get('flagged_policies') == None:
         finding_obj['flagged_policies'] = []
     finding_obj['flagged_policies'].append(source_gpo)
-    logger.debug(f"Finding object contents: {finding_obj}")
+    # logger.debug(f"Finding object contents: {finding_obj}")
     return finding_obj
 
 def make_jq_query(finding_obj: dict, gp_obj: dict, query_type: QueryType) -> jq._ProgramWithInput:
@@ -97,7 +92,7 @@ def make_jq_query(finding_obj: dict, gp_obj: dict, query_type: QueryType) -> jq.
     query_compiled = jq.compile(query_string)
     query_result = query_compiled.input(gp_obj)
     # logger.debug(query_result)
-    logger.debug(f"Ran query for: {finding_obj['description']}\n~~~")
+    logger.debug(f"Ran query for: {finding_obj['description']}")
     return query_result
         
 def add_gp_settings_to_findings_obj(finding_obj: dict, gp_obj: dict):
@@ -114,7 +109,7 @@ def add_gp_settings_to_findings_obj(finding_obj: dict, gp_obj: dict):
             # Wrap potentially "empty" iterator in try-except block.
             try:
                 for setting_res in setting_result:
-                    logger.warning(f"Adding setting to {finding_obj['description']}\ttype: {type(setting_res)}")
+                    logger.debug(f"Adding setting to {finding_obj['description']}\ttype: {type(setting_res)}")
                     if finding_obj.get('gp_setting') == None:
                         finding_obj['gp_setting'] = [setting_res]
                     else:
