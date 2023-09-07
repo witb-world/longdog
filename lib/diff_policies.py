@@ -35,7 +35,7 @@ def build_jq_query(settings) -> str:
     """
     Returns a jq query from some settings produced by jsondiff
     """
-    query = '.[].PolicyData.SettingResults[].Setting | .select(%s)'
+    query = '.[].PolicyData.SettingResults[].Setting | select(%s)'
     setting_res = []
 
     for setting in settings:
@@ -46,7 +46,7 @@ def build_jq_query(settings) -> str:
         if 'Action' in setting and setting['Action'] == 'Update':
             setting_type = 'registry_update'
             # pp.pprint(setting['Values'] + setting['Key'])
-            setting_query = query % f'.Key == "\\\\{setting["Key"]}" and .Values[].ValueName == "{setting["Values"][0]["ValueName"]}" and .Values[].ValueString == "{setting["Values"][0]["ValueString"]}"'
+            setting_query = query % f'.Key == "{setting["Key"]}" and .Values[].ValueName == "{setting["Values"][0]["ValueName"]}" and .Values[].ValueString == "{setting["Values"][0]["ValueString"]}"'
             # print("QUERY:", setting_query)
 
         
