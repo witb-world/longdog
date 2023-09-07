@@ -2,6 +2,7 @@ import click
 import json
 import os
 from lib import file_parser, policy_assessor, report_creator, diff_policies
+from loguru import logger
 # Just putting these here for global accessibility now, will move into classes later
 sharphound_base_path = ''
 
@@ -18,13 +19,12 @@ def run_longdog(sharphound_dir, grouper_input, output, findings_output, recurse_
     grouper_path = ''
     if grouper_input:
         grouper_path = grouper_input
-        print("Loading group3r data from", grouper_path)
+        logger.debug("Loading group3r data from %s" % grouper_path)
     else:
         grouper_path = None
 
     sharphound_base_path = sharphound_dir
-    print(os.listdir(sharphound_base_path))
-    print("Beginning to parse files...")
+    logger.debug("Beginning to parse files...")
 
     fp = file_parser.FileParser(sharphound_dir_path=sharphound_base_path, grouper_file_path=grouper_path, recurse=recurse_links)
     res = fp.parse_files()

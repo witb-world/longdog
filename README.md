@@ -51,6 +51,7 @@ As noted above, the `--sharphound-dir` flag should be followed by the path to th
 
 ### Longterm roadmap
 
+- [ ] Add Group Policy Editor path details to individual settings during collection.
 - [ ] Connect frontend to neo4j instance with Sharphound/Bloodhound data loaded, allowing users to explore affected AD objects dynamically for each Group Policy finding.
 - [ ] Develop and integrate standalone LDAP and SMB ingest tooling to move away from Sharphound/Group3r requirements.
   - [ ] Further GPO parsing capabilities needed: CSV files (for audit settings)

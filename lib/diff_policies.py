@@ -31,11 +31,15 @@ def sanitize_policy_to_settings(policies: dict, domain: str) -> dict:
     return policy_map
 
 
-def build_jq_query(settings) -> str:
+def build_jq_query(settings) -> list:
     """
     Returns a jq query from some settings produced by jsondiff
+
+    Returns:
+        List of dictionaries including setting types and queries
     """
     query = '.[].PolicyData.SettingResults[].Setting | select(%s)'
+    policy_obj_query = '.[] | select(.PolicyData.SettingResults[].Setting | %s)'
     setting_res = []
 
     for setting in settings:
@@ -43,21 +47,19 @@ def build_jq_query(settings) -> str:
         # pp.pprint(setting)
         setting_vals = {}
 
+        # For registry update settings in GPOs, we'll see 'action->Update' in the JSON schema
         if 'Action' in setting and setting['Action'] == 'Update':
             setting_type = 'registry_update'
-            # pp.pprint(setting['Values'] + setting['Key'])
-            setting_query = query % f'.Key == "{setting["Key"]}" and .Values[].ValueName == "{setting["Values"][0]["ValueName"]}" and .Values[].ValueString == "{setting["Values"][0]["ValueString"]}"'
-            # print("QUERY:", setting_query)
-
-        
-
+            setting_filter = f'.Key == "{setting["Key"]}" and .Values[].ValueName == "{setting["Values"][0]["ValueName"]}" and .Values[].ValueString == "{setting["Values"][0]["ValueString"]}"'
+        # For "generic" settings, we just get a SettingName and ValueString.
         else:
             setting_type = 'generic_setting'
-            # pp.pprint(setting['SettingName'] + setting['ValueString'])
-            setting_query = query % f'.SettingName == "{setting["SettingName"]} and .ValueString == "{setting["ValueString"]}"'
+            setting_filter =  f'.SettingName == "{setting["SettingName"]} and .ValueString == "{setting["ValueString"]}"'
+     
 
         setting_vals['settingType'] = setting_type
-        setting_vals['query'] = setting_query
+        setting_vals['query'] = query % setting_filter
+        setting_vals['policy_obj_query'] = policy_obj_query % setting_filter
         setting_res.append(setting_vals)
 
     return setting_res
