@@ -1,10 +1,6 @@
 import json
 import jsondiff as jd
 
-import pprint
-
-pp = pprint.PrettyPrinter(indent=4)
-
 
 TESTING_DOMAIN_NAME = 'urth2.local.com'
 
@@ -35,6 +31,8 @@ def build_jq_query(settings) -> list:
     """
     Returns a jq query from some settings produced by jsondiff
 
+    Args:
+        settings (list): List of setting dictionaries
     Returns:
         List of dictionaries including setting types and queries
     """
@@ -44,7 +42,6 @@ def build_jq_query(settings) -> list:
 
     for setting in settings:
         setting = setting[1]['Setting']
-        # pp.pprint(setting)
         setting_vals = {}
 
         # For registry update settings in GPOs, we'll see 'action->Update' in the JSON schema
@@ -65,7 +62,18 @@ def build_jq_query(settings) -> list:
     return setting_res
 
 
-def diff_objs(new_parsed_path: str, domain: str) -> dict:
+def diff_objs(new_parsed_path: str, domain: str) -> list:
+    """
+    Given the path do some group policy json file and a domain, determines a set of queries 
+    to identify differences from a set of default Group Policy settings as applied on a 
+    Windows Server 2022 DC.
+
+    Args:
+        new_parsed_path (str): path to a JSON file parsed and identified by Longdog
+        domain (str): domain name for the group policy being analyzed
+    Returns:
+        List of dictionaries including setting types and queries
+    """
     with open('rules/longdog-baseline.json') as baseline_file:
         baseline_policy = json.load(baseline_file)
     
@@ -80,8 +88,6 @@ def diff_objs(new_parsed_path: str, domain: str) -> dict:
 
     for key in diff:
         if jd.insert in diff[key]:
-            # print(f'{key}:', json.dumps(diff[key][jd.insert]))
             query_results = build_jq_query(diff[key][jd.insert])
 
-    # print(query_results)
     return query_results
