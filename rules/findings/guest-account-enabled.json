@@ -6,6 +6,6 @@
     "references": [],
     "dashboard_name": "Password Policy",
     "level": "warning",
-    "query": ".[].PolicyData.SettingResults[].Setting | select(.SettingName==\"EnableGuestAccount\") | select(.ValueString == \"1\")",
+    "query": ".[].PolicyData.SettingResults[].Setting | select(.SettingName==\"EnableGuestAccount\" and .ValueString == \"1\")",
     "policy_object_query": ".[] | select(.PolicyData.SettingResults[].Setting? | .SettingName==\"EnableGuestAccount\" and .ValueString == \"1\")"
 }

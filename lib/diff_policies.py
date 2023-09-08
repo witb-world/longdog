@@ -1,5 +1,6 @@
 import json
-import jsondiff
+import jsondiff as jd
+
 
 TESTING_DOMAIN_NAME = 'urth2.local.com'
 
@@ -26,7 +27,53 @@ def sanitize_policy_to_settings(policies: dict, domain: str) -> dict:
     return policy_map
 
 
-def diff_objs(new_parsed_path: str, domain: str) -> dict:
+def build_jq_query(settings) -> list:
+    """
+    Returns a jq query from some settings produced by jsondiff
+
+    Args:
+        settings (list): List of setting dictionaries
+    Returns:
+        List of dictionaries including setting types and queries
+    """
+    query = '.[].PolicyData.SettingResults[].Setting | select(%s)'
+    policy_obj_query = '.[] | select(.PolicyData.SettingResults[].Setting | %s)'
+    setting_res = []
+
+    for setting in settings:
+        setting = setting[1]['Setting']
+        setting_vals = {}
+
+        # For registry update settings in GPOs, we'll see 'action->Update' in the JSON schema
+        if 'Action' in setting and setting['Action'] == 'Update':
+            setting_type = 'registry_update'
+            setting_filter = f'.Key == "{setting["Key"]}" and .Values[].ValueName == "{setting["Values"][0]["ValueName"]}" and .Values[].ValueString == "{setting["Values"][0]["ValueString"]}"'
+        # For "generic" settings, we just get a SettingName and ValueString.
+        else:
+            setting_type = 'generic_setting'
+            setting_filter =  f'.SettingName == "{setting["SettingName"]} and .ValueString == "{setting["ValueString"]}"'
+     
+
+        setting_vals['settingType'] = setting_type
+        setting_vals['query'] = query % setting_filter
+        setting_vals['policy_obj_query'] = policy_obj_query % setting_filter
+        setting_res.append(setting_vals)
+
+    return setting_res
+
+
+def diff_objs(new_parsed_path: str, domain: str) -> list:
+    """
+    Given the path do some group policy json file and a domain, determines a set of queries 
+    to identify differences from a set of default Group Policy settings as applied on a 
+    Windows Server 2022 DC.
+
+    Args:
+        new_parsed_path (str): path to a JSON file parsed and identified by Longdog
+        domain (str): domain name for the group policy being analyzed
+    Returns:
+        List of dictionaries including setting types and queries
+    """
     with open('rules/longdog-baseline.json') as baseline_file:
         baseline_policy = json.load(baseline_file)
     
@@ -37,4 +84,10 @@ def diff_objs(new_parsed_path: str, domain: str) -> dict:
 
     new_policy = sanitize_policy_to_settings(new_policy, domain)
 
-    return jsondiff.diff(baseline_policy, new_policy)
+    diff =  jd.diff(baseline_policy, new_policy)
+
+    for key in diff:
+        if jd.insert in diff[key]:
+            query_results = build_jq_query(diff[key][jd.insert])
+
+    return query_results
