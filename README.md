@@ -1,6 +1,6 @@
 # What this is
 
-This tool will analyze the policies enforced by Group Policy in a AD Domain, track which objects inherit those policies, and report on common misconfigurations and potential paths to exploiting the Domain. This tool is being developed as a research project with [NCC Group](https://github.com/nccgroup).
+This tool will analyze the policies enforced by Group Policy in a AD Domain, track which objects inherit those policies, and report on common misconfigurations and potential paths to exploiting the Domain. This tool was originally developed as a summer internship research project with [NCC Group](https://github.com/nccgroup).
 
 # How to run this
 
